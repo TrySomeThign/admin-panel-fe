@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Syne:wght@400;500;700;800&display=swap');
+@import "@mdi/font/css/materialdesignicons.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gray-light-color: #ECE8E1;
+  --gray-dark-color: #151313;
+  --black-almost-color: #051130;
+  --blue-royal: #3a2bba;
+  --green-lime: #e0f954;
+  --white-color: #fff;
+  --black-color: #000;
+  --bg-gray-light:#d7d7d7;
+}
+
+@font-face {
+  font-family: 'Integral CF';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../../public/fonts/Fontspring-DEMO-integralcf-regular.otf') format('truetype');
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--gray-light-color) !important;
+  cursor: url('/icons/cursor.svg'), auto;
+}
+
+body:active{
+  cursor: url('/icons/cursor-active.svg'), auto;
+
+}
