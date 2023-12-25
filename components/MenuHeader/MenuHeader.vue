@@ -13,7 +13,7 @@
           <h1
             class="menu__title text-xl 2xl:text-3xl xl:text-3xl lg:text-2xl md:text-2xl font-bold"
           >
-            ConianGuys
+            &lt;{{ user?.name ?? "ConianGuys" }} />
           </h1>
           <div
             class="btn__close w-12 h-12 p-3 flex items-center justify-center rounded-full"
@@ -39,6 +39,7 @@
           >
             <p
               class="menu__item-title text-5xl font-extrabold hover:text-white transition-all"
+              @click="show = false"
             >
               {{ menu.title }}
               <span class="text-xs font-medium text-gray-500 italic"
@@ -88,12 +89,12 @@
       </div>
     </v-overlay>
     <div
-      class="menu__header-mobile position-fixed left-0 right-0 top-0 w-full overflow-scroll"
+      class="menu__header-mobile position-fixed left-0 right-0 top-0 w-full overflow-scroll no-scrollbar"
       :class="showMobile ? 'h-full' : 'h-0'"
     >
       <div
         :class="showMobile ? 'h-full' : 'h-0'"
-        class="body-container overflow-scroll px-4 py-4 2xl:p-12 xl:p-12 lg:p-12 md:p-8 2xl:rounded-3xl xl:rounded-2xl lg:rounded-xl md:rounded-lg 2xl:w-3/4 xl:w-4/5 lg:w-3/4 md:w-11/12 w-full lg:h-fit md:h-fit h-full"
+        class="body-container overflow-scroll no-scrollbar px-4 py-4 2xl:p-12 xl:p-12 lg:p-12 md:p-8 2xl:w-3/4 xl:w-4/5 lg:w-3/4 md:w-11/12 w-full lg:h-fit md:h-fit h-full"
       >
         <div class="flex items-center justify-between w-full">
           <h1 class="menu__title text-xl font-bold">ConianGuys</h1>
@@ -121,6 +122,7 @@
           >
             <p
               class="menu__item-title text-2xl font-extrabold hover:text-white transition-all"
+              @click="showMobile = false"
             >
               {{ menu.title }}
               <span class="text-xs font-medium text-gray-500 italic"
@@ -177,12 +179,17 @@
 
 <script setup lang="ts">
 import { pagePaths } from "~/constant/paths";
+import { useAuthStore } from "~/store/auth";
 
 const localePath = useLocalePath();
-
+const authStore = useAuthStore();
 const show = ref<boolean>(false);
 const showMobile = ref<boolean>(false);
 const isHoverBtnClose = ref<boolean>(false);
+
+const user = computed(() => {
+  return authStore.user;
+});
 const menuList = ref<{ id: number; title: string; to: string }[]>([
   {
     id: 1,

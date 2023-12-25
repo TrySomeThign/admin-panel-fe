@@ -1,9 +1,12 @@
+import type { IBaseRecord } from "~/types/base";
+import type { ISocial } from "./social.interface";
+
 export enum EUserRole {
   User = "User",
   Admin = "Admin",
 }
 
-export interface IUser {
+export interface IUser extends IBaseRecord {
   name: string;
   displayName: string;
   avatar: string;
@@ -12,5 +15,6 @@ export interface IUser {
   role: EUserRole;
   jobTitle: string;
   introduction: string;
-  token:string;
+  token: string;
+  socials: ISocial[];
 }

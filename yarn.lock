@@ -741,6 +741,11 @@
     methods "^1.1.2"
     path-to-regexp "^6.2.1"
 
+"@kurkle/color@^0.3.0":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@kurkle/color/-/color-0.3.2.tgz#5acd38242e8bde4f9986e7913c8fdf49d3aa199f"
+  integrity sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==
+
 "@kwsites/file-exists@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@kwsites/file-exists/-/file-exists-1.1.1.tgz#ad1efcac13e1987d8dbaf235ef3be5b0d96faa99"
@@ -1098,6 +1103,16 @@
     "@nuxt/kit" "^3.8.1"
     lodash.template "^4.5.0"
     pathe "^1.1.1"
+
+"@nuxtjs/composition-api@^0.20.2":
+  version "0.20.2"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/composition-api/-/composition-api-0.20.2.tgz#1c395c675f6eec50f80a378553e965ad0d6bdd19"
+  integrity sha512-SetYbVgG6dmnInUBZ/Peo0Q/oyu9UD9MVukS5vKpp8Setm6ZmTXj5/AjnsQlFx5Kzu+zKf19JzWg29YFZdt/vg==
+  dependencies:
+    "@vue/composition-api" "1.0.0-rc.2"
+    defu "^3.2.2"
+    ufo "^0.6.6"
+    upath "^2.0.1"
 
 "@nuxtjs/i18n@^8.0.0-rc.11":
   version "8.0.0-rc.11"
@@ -1669,6 +1684,18 @@
     "@vue/compiler-dom" "3.3.13"
     "@vue/shared" "3.3.13"
 
+"@vue/composition-api@1.0.0-rc.2":
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.0.0-rc.2.tgz#9d90e507cf71634aad51ab878b141c2a4739d523"
+  integrity sha512-R4XEvT+qXiT/lnsLzqhjkR/L/ALuNeeQPZqredpLduGKwZtmt2l5I3kT1W+c/157hrY732eFlsPUGz/q9vFaYg==
+  dependencies:
+    tslib "^2.1.0"
+
+"@vue/composition-api@^1.4.5":
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.7.2.tgz#0b656f3ec39fefc2cf40aaa8c12426bcfeae1b44"
+  integrity sha512-M8jm9J/laYrYT02665HkZ5l2fWTK4dcVg3BsDHm/pfz+MjDYwX+9FUaZyGwEyXEDonQYRCo0H7aLgdklcIELjw==
+
 "@vue/devtools-api@^6.5.0", "@vue/devtools-api@^6.5.1":
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.5.1.tgz#7f71f31e40973eeee65b9a64382b13593fdbd697"
@@ -1764,6 +1791,14 @@
   integrity sha512-kc00uV6CiaTdc3i1CDC4a3lBxzaBE9AgYNtFN87B5OOscqeWElj/uza8qVDmk7/U8JbqoONLbtqiLJ5LGRuqlw==
   dependencies:
     vue-demi ">=0.14.6"
+
+"@vueuse/sound@^2.0.1", "@vueuse/sound@latest":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/sound/-/sound-2.0.1.tgz#eafd886d17185ed66c583d8bf08c3cd51525b33b"
+  integrity sha512-7Fbp9lQkuUnpTXS9vPbvT2FDYHuwJbvKPivOYETaVVSmcZKoczw6zcsebsARkH5Ged0f045YUOZnV/RuCzyLXQ==
+  dependencies:
+    howler "^2.2.3"
+    vue-demi latest
 
 abbrev@1:
   version "1.1.1"
@@ -2209,6 +2244,13 @@ chalk@^5.3.0:
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-5.3.0.tgz#67c20a7ebef70e7f3970a01f90fa210cb6860385"
   integrity sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==
 
+chart.js@^4.4.1:
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-4.4.1.tgz#ac5dc0e69a7758909158a96fe80ce43b3bb96a9f"
+  integrity sha512-C74QN1bxwV1v2PEujhmKjOZ7iUM4w6BWs23Md/6aOZZSlwMzeCIDGuZay++rBgChYru7/+QFeoQW0fQoP534Dg==
+  dependencies:
+    "@kurkle/color" "^0.3.0"
+
 "chokidar@>=3.0.0 <4.0.0", chokidar@^3.5.1, chokidar@^3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
@@ -2566,6 +2608,11 @@ csso@5.0.5:
   dependencies:
     css-tree "~2.2.0"
 
+csstype@3.0.10:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.10.tgz#2ad3a7bed70f35b965707c092e5f30b327c290e5"
+  integrity sha512-2u44ZG2OcNUO9HDp/Jl8C07x6pU/eTR3ncV91SiK3dhG9TWvRVsCoJw14Ckx5DgWkzGA3waZWO3d7pgqpUI/XA==
+
 csstype@^3.1.2, csstype@^3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.3.tgz#d80ff294d114fb0e6ac500fbf85b60137d7eff81"
@@ -2641,6 +2688,11 @@ define-lazy-prop@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/define-lazy-prop/-/define-lazy-prop-3.0.0.tgz#dbb19adfb746d7fc6d734a06b72f4a00d021255f"
   integrity sha512-N+MeXYoqr3pOgn8xfyRPREN7gHakLYjhsHhWGT3fWAiL4IkAt0iDw14QiiEm2bE30c5XX5q0FtAA3CK5f9/BUg==
+
+defu@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/defu/-/defu-3.2.2.tgz#be20f4cc49b9805d54ee6b610658d53894942e97"
+  integrity sha512-8UWj5lNv7HD+kB0e9w77Z7TdQlbUYDVWqITLHNqFIn6khrNHv5WQo38Dcm1f6HeNyZf0U7UbPf6WeZDSdCzGDQ==
 
 defu@^6.0.0, defu@^6.1.2, defu@^6.1.3:
   version "6.1.3"
@@ -3392,6 +3444,11 @@ hosted-git-info@^7.0.0:
   dependencies:
     lru-cache "^10.0.1"
 
+howler@^2.2.3:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/howler/-/howler-2.2.4.tgz#bd3df4a4f68a0118a51e4bd84a2bfc2e93e6e5a1"
+  integrity sha512-iARIBPgcQrwtEr+tALF+rapJ8qSc+Set2GJQl7xT1MQzWaVkFebdJhR3alVlSiUf5U7nAANKuj3aWpwerocD5w==
+
 html-tags@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-3.3.1.tgz#a04026a18c882e4bba8a01a3d39cfe465d40b5ce"
@@ -3988,6 +4045,11 @@ local-pkg@^0.5.0:
     mlly "^1.4.2"
     pkg-types "^1.0.3"
 
+lodash-es@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
+
 lodash._reinterpolate@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
@@ -4348,6 +4410,11 @@ mz@^2.7.0:
     object-assign "^4.0.1"
     thenify-all "^1.0.0"
 
+nanoid@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.2.0.tgz#62667522da6673971cca916a6d3eff3f415ff80c"
+  integrity sha512-fmsZYa9lpn69Ad5eDn7FMcnnSR+8R34W9qJEijxYhTbfOWzr22n1QxCMzXLK+ODyW2973V3Fux959iQoUxzUIA==
+
 nanoid@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.7.tgz#d0c301a691bc8d54efa0a2226ccf3fe2fd656bd8"
@@ -4633,6 +4700,16 @@ nuxi@^3.10.0:
   integrity sha512-veZXw2NuaQ1PrpvHrnQ1dPgkAjv0WqPlvFReg5Iubum0QVGWdJJvGuNsltDQyPcZ7X7mhMXq9SLIpokK4kpvKA==
   optionalDependencies:
     fsevents "~2.3.3"
+
+nuxt-use-sound@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/nuxt-use-sound/-/nuxt-use-sound-1.0.8.tgz#5de15450924f24d951961d2693d38c6a726d0910"
+  integrity sha512-0UlbJSJq/bUJbTJ+bznkC9bvEyWMbOsbsWla999K2g3PkanKF+I2W2XOJSVG/i4ekpA889m4qaRwWp9KSyBv1w==
+  dependencies:
+    "@nuxtjs/composition-api" "^0.20.2"
+    "@vueuse/sound" latest
+    defu "^3.2.2"
+    vue-demi "^0.6.1"
 
 nuxt@^3.8.2:
   version "3.8.2"
@@ -6198,6 +6275,11 @@ tslib@2.4.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
   integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
 
+tslib@^2.1.0:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.2.tgz#703ac29425e7b37cd6fd456e92404d46d1f3e4ae"
+  integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==
+
 tsscmp@1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/tsscmp/-/tsscmp-1.0.6.tgz#85b99583ac3589ec4bfef825b5000aa911d605eb"
@@ -6246,6 +6328,11 @@ type-is@^1.6.16:
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.24"
+
+ufo@^0.6.6:
+  version "0.6.12"
+  resolved "https://registry.yarnpkg.com/ufo/-/ufo-0.6.12.tgz#10a4c8875e5bbe19bf85250b47805d74f37350af"
+  integrity sha512-+Sg92qbu7XRaqO1y2DKEDuT83ggmYN/PhymUk6XrApJ0XOTs5LFODQt7aPqhRGB7jkKKhJatcOSi3OOxVAzRAw==
 
 ufo@^1.1.2, ufo@^1.2.0, ufo@^1.3.0, ufo@^1.3.1, ufo@^1.3.2:
   version "1.3.2"
@@ -6610,10 +6697,25 @@ vue-bundle-renderer@^2.0.0:
   dependencies:
     ufo "^1.2.0"
 
-"vue-demi@>=0.13.5 < 1.0.0", vue-demi@>=0.14.5, vue-demi@>=0.14.6:
+vue-chart-3@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/vue-chart-3/-/vue-chart-3-2.1.2.tgz#6f0a8511e771c8680d52e356d2f864bb7763449e"
+  integrity sha512-FHY9MUM1BMWOTZ1vS+WWR16qHuyc+KvMSisZ0rsXhtBdefCnnHYKqC06kgA2H3eyoJQiM6dwjTRlJjH7FqYLNg==
+  dependencies:
+    "@vue/composition-api" "^1.4.5"
+    csstype "3.0.10"
+    lodash-es "^4.17.21"
+    nanoid "3.2.0"
+
+"vue-demi@>=0.13.5 < 1.0.0", vue-demi@>=0.14.5, vue-demi@>=0.14.6, vue-demi@latest:
   version "0.14.6"
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.14.6.tgz#dc706582851dc1cdc17a0054f4fec2eb6df74c92"
   integrity sha512-8QA7wrYSHKaYgUxDA5ZC24w+eHm3sYCbp0EzcDwKqN3p6HqtTCGR/GVsPyZW92unff4UlcSh++lmqDWN3ZIq4w==
+
+vue-demi@^0.6.1:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.6.2.tgz#ed9633eaa69b7409cc6e8328e8a6c3d31ab39319"
+  integrity sha512-4KfwxbqsZcDz7UryD11oHa6FLK9Gzx4MIwAEcP37IbUdXuF6DHg2w9L5Zv5t+FNqsuAjEQ2NnGVIZ3u71y435Q==
 
 vue-devtools-stub@^0.1.0:
   version "0.1.0"

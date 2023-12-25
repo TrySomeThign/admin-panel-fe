@@ -1,0 +1,61 @@
+.title {
+  font-family: 'Syne', sans-serif;
+  filter: drop-shadow(1px 4px 0 rgb(0, 0, 0));
+
+  @include desktop {
+    filter: drop-shadow(1px 3px 0 rgb(0, 0, 0));
+
+  }
+
+  @include tablet {
+    filter: drop-shadow(1px 2px 0 rgb(0, 0, 0));
+
+  }
+
+  @include mobile {
+    filter: drop-shadow(1px 1px 0 rgb(0, 0, 0));
+
+  }
+}
+
+
+.form {
+  &__search {}
+
+  &__group {}
+
+  &__input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--black-almost-color);
+    padding: 8px 16px;
+    width: 100%;
+    border-radius: 100rem;
+
+    input {
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+
+  }
+
+  &__btn-search {
+    padding: 14px 48px;
+    flex: 1;
+    margin-left: 40px;
+    white-space: nowrap;
+
+    @include desktop {
+      padding: 14px 40px;
+    }
+    @include mobile{
+      padding: 10px 30px;
+      margin-left: 30px;
+    }
+  }
+}

@@ -4,6 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
 :root {
   --gray-light-color: #ECE8E1;
   --gray-dark-color: #151313;
@@ -12,7 +28,8 @@
   --green-lime: #e0f954;
   --white-color: #fff;
   --black-color: #000;
-  --bg-gray-light:#d7d7d7;
+  --bg-gray-light: #d7d7d7;
+  --box-shadow-button: transparent 0px 0px 0px 0px, transparent 0px 0px 0px 0px, rgba(0, 0, 0, .12) 0px 1px 1px 0px, rgba(64, 68, 82, .16) 0px 0px 0px 1px, transparent 0px 0px 0px 0px, transparent 0px 0px 0px 0px, rgba(64, 68, 82, .08) 0px 2px 5px 0px;
 }
 
 @font-face {
@@ -38,7 +55,7 @@ body {
   cursor: url('/icons/cursor.svg'), auto;
 }
 
-body:active{
+body:active {
   cursor: url('/icons/cursor-active.svg'), auto;
 
 }

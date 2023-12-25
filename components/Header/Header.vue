@@ -1,8 +1,11 @@
 <template>
   <header
-    class="position-fixed px-xxl-20 px-xl-20 px-lg-16 px-md-4 px-4 py-xxl-12 py-xl-12 py-lg-10 py-md-8 py-2 w-full flex items-center justify-between"
+    class="position-fixed z-50 px-xxl-20 px-xl-20 px-lg-16 px-md-4 px-4 py-xxl-12 py-xl-12 py-lg-10 py-md-8 py-2 w-full flex items-center justify-between"
   >
-    <nuxt-link :to="localePath(pagePaths.home)" class="">
+    <nuxt-link
+      :to="localePath(pagePaths.home)"
+      class="flex items-center justify-start gap-4"
+    >
       <!-- <nuxt-img
         src="/images/T1_logo_primary_red.png"
         class="w-16 h-16 object-contain"
@@ -10,13 +13,13 @@
       <h1
         class="name__app font-extrabold text-white text-2xl md:text-3xl lg:text-4xl"
       >
-        Portfolio Admin
+        &lt;{{ user?.name ?? "ConianGuys" }}'s Portfolio />
       </h1>
     </nuxt-link>
     <menu-header v-slot="{ handleShowMenu }">
       <div
         class="iconMenu w-10 md:w-12 lg:w-14 h-10 md:h-12 lg:h-14 rounded-full flex items-center justify-center"
-        @click="handleShowMenu"
+        @click="handleShowMenu()"
       >
         <nuxt-img
           src="/icons/menu-bar.svg"
@@ -29,8 +32,15 @@
 
 <script setup lang="ts">
 import { pagePaths } from "~/constant/paths";
+import { useAuthStore } from "~/store/auth";
 
 const localePath = useLocalePath();
+
+const authStore = useAuthStore();
+
+const user = computed(() => {
+  return authStore.user;
+});
 </script>
 
 <style scoped>

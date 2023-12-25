@@ -29,10 +29,17 @@ export const useAuthStore = defineStore("auth", {
 
     async getCurrentUser() {
       try {
-        const { data }: { data: IUser } = await $fetch(`/auth/get-user`, {
-          method: "POST",
-        });
-        this.user = data;
+        const token = localStorage.getItem("token");
+        const { data }: { data: { user: IUser } } = await $fetch(
+          `/auth/get-user`,
+          {
+            method: "POST",
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          }
+        );
+        this.user = data.user;
       } catch (error: any) {
         throw error.response._data;
       }

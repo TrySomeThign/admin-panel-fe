@@ -2,10 +2,11 @@
   padding-top: 152px;
   padding-bottom: 72px;
 
-  @include tablet{
+  @include tablet {
     padding-top: 100px;
   }
-  @include mobile{
+
+  @include mobile {
     padding-top: 80px;
   }
 }

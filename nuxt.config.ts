@@ -2,10 +2,7 @@
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: [
-    "~/assets/scss/global.scss",
-    "~/assets/scss/_mixins.scss",
-  ],
+  css: ["~/assets/scss/global.scss", "~/assets/scss/_mixins.scss"],
   build: {
     transpile: ["vuetify"],
   },
@@ -42,7 +39,7 @@ export default defineNuxtConfig({
         defaultLocale: ["en-us"],
         lazy: true,
         langDir: "locales",
-        strategy: "prefix_and_default",
+        strategy: "prefix_except_default",
         baseUrl: "localhost:3000",
       },
     ],

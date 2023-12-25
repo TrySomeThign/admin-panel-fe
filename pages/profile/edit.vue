@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <Welcome />
-    <Statistic />
-  </div>
+  <div>edit profile</div>
 </template>
 
 <script setup lang="ts"></script>

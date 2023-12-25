@@ -1,0 +1,31 @@
+.card {
+  &__item {
+
+    position: relative;
+    background-color: var(--bg-gray-light);
+    z-index: 0;
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      content: "";
+      z-index: -1;
+      opacity: 0.1;
+      pointer-events: none;
+      background-image: url("/images/noise.png");
+      background-repeat: repeat;
+      background-position: 0 0;
+      border-radius: 6px;
+      background-size: 200px auto;
+    }
+  }
+  &__title{
+    font-family: 'Syne', sans-serif;
+  }
+}
+
+.icon{
+  background-color: var(--white-color);
+}

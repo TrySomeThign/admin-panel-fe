@@ -3,3 +3,10 @@ export interface IError {
   status: string;
   stack: string;
 }
+
+export interface IBaseRecord{
+  id:string;
+  createdAt:Date;
+  updatedAt:Date;
+  deletedAt: Date;
+}

@@ -1,6 +1,6 @@
 <template>
   <div>
-    profile page
+    Projects page
   </div>
 </template>
 
