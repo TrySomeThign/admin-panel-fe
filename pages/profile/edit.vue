@@ -1,5 +1,5 @@
 <template>
-  <div>edit profile</div>
+  <form>edit profile nes</form>
 </template>
 
 <script setup lang="ts"></script>
