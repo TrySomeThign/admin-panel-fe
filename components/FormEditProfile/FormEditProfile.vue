@@ -254,11 +254,12 @@ const handleUpdateProfile = handleSubmit(async (values) => {
   try {
     loadingUpdateProfile.value = true;
     await userStore.updateProfile(authStore.user.id, values);
-    await authStore.getCurrentUser();
 
     if (isFileChange.value) {
       await userStore.uploadFile(authStore.user.id, formData);
     }
+
+    await authStore.getCurrentUser();
 
     loadingUpdateProfile.value = false;
     isFileChange.value = false;
