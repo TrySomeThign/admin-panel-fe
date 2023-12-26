@@ -52,9 +52,9 @@
 <script setup lang="ts">
 import { useForm } from "vee-validate";
 import * as yup from "yup";
+import { pagePaths } from "~/constant/paths";
 import { useAuthStore } from "~/store/auth";
 import type { IPayloadSignIn } from "~/store/interfaces";
-import { pagePaths } from "~/constant/paths";
 import type { IError } from "~/types/base";
 
 const { defineField, handleSubmit, errors } = useForm<IPayloadSignIn>({

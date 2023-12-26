@@ -200,10 +200,10 @@
 </template>
 
 <script setup lang="ts">
-import { useAuthStore } from "~/store/auth";
-import { useUserStore } from "~/store/user";
 import { avatarPlaceholderPath } from "~/constant/paths";
-import { type IPayloadEditProfile, EUserRole } from "~/store/interfaces";
+import { useAuthStore } from "~/store/auth";
+import { EUserRole, type IPayloadEditProfile } from "~/store/interfaces";
+import { useUserStore } from "~/store/user";
 
 const authStore = useAuthStore();
 const userStore = useUserStore();
