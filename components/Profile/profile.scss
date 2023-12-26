@@ -1,6 +1,6 @@
 .icon__plus {
   right: 12px;
-  top: 18px;
+  bottom: 18px;
 
   @include tablet {
     right: 6px;
@@ -10,7 +10,7 @@
     width: 30px;
     height: 30px;
     right: 7px;
-    top: 24px;
+    bottom: 24px;
   }
 }
 
