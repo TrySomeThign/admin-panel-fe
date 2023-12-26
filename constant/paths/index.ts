@@ -4,3 +4,5 @@ export const pagePaths = {
   profile: "/profile",
   editProfile: "/profile/edit",
 };
+
+export const avatarPlaceholderPath = "/images/avatar-placeholder.gif";

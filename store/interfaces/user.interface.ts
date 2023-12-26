@@ -18,3 +18,15 @@ export interface IUser extends IBaseRecord {
   token: string;
   socials: ISocial[];
 }
+
+
+export interface IPayloadEditProfile{
+  name?: string;
+  displayName?: string;
+  avatar?: string;
+  email?: string;
+  password?: string;
+  role?: EUserRole;
+  jobTitle?: string;
+  introduction?: string;
+}
