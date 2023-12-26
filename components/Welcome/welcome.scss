@@ -25,16 +25,8 @@
 
   &:hover {
     .user__name {
-      right: -70%;
+      right: -100%;
       transition: all 0.3s ease-out;
-
-      @include desktop {
-        right: -80%;
-      }
-
-      @include tablet {
-        right: -80%;
-      }
 
       @include mobile {
         right: 0;

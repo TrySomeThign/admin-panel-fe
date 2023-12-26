@@ -19,13 +19,11 @@ export interface IUser extends IBaseRecord {
   socials: ISocial[];
 }
 
-
-export interface IPayloadEditProfile{
+export interface IPayloadEditProfile {
   name?: string;
   displayName?: string;
-  avatar?: string;
+  avatar?: string | File | null;
   email?: string;
-  password?: string;
   role?: EUserRole;
   jobTitle?: string;
   introduction?: string;

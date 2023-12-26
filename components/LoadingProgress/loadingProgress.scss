@@ -1,0 +1,22 @@
+.loader {
+  height: 6px;
+  width: 100%;
+  --bg-transition: no-repeat linear-gradient(var(--blue-royal) 0 0);
+  background: var(--bg-transition), var(--bg-transition), #d7b8fc;
+  background-size: 60% 100%;
+  animation: l16 2s infinite;
+}
+
+@keyframes l16 {
+  0% {
+    background-position: -150% 0, -150% 0
+  }
+
+  66% {
+    background-position: 250% 0, -150% 0
+  }
+
+  100% {
+    background-position: 250% 0, 250% 0
+  }
+}
