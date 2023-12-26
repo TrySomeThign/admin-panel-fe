@@ -36,7 +36,7 @@
       </div>
 
       <div
-        class="buttons__action   2xl:w-fit xl:w-fit lg:w-fit md:w-fit w-full flex items-center justify-end 2xl:gap-6 xl:gap-6 lg:gap-6 md:gap-4 gap-4"
+        class="buttons__action 2xl:w-fit xl:w-fit lg:w-fit md:w-fit w-full flex items-center justify-end 2xl:gap-6 xl:gap-6 lg:gap-6 md:gap-4 gap-4"
       >
         <nuxt-link
           :to="localePath(pagePaths.editProfile)"
@@ -71,7 +71,11 @@
               class="w-1/2 h-1/2"
             />
           </div>
-          <h4 class="section__info-title 2xl:text-xl xl:text-xl lg:text-xl md:text-lg text-lg font-bold">Visibility</h4>
+          <h4
+            class="section__info-title 2xl:text-xl xl:text-xl lg:text-xl md:text-lg text-lg font-bold"
+          >
+            Visibility
+          </h4>
         </div>
 
         <div class="section__info-detail mb-2">
@@ -80,7 +84,9 @@
           >
             Display name
           </p>
-          <p class="section__info-value 2xl:text-sm xl:text-sm lg:text-sm md:text-sm text-xs font-medium text-black">
+          <p
+            class="section__info-value 2xl:text-sm xl:text-sm lg:text-sm md:text-sm text-xs font-medium text-black"
+          >
             {{ user?.displayName ?? "N/A" }}
           </p>
         </div>
@@ -91,7 +97,9 @@
           >
             Introduction
           </p>
-          <p class="section__info-value 2xl:text-sm xl:text-sm lg:text-sm md:text-sm text-xs font-medium text-black">
+          <p
+            class="section__info-value 2xl:text-sm xl:text-sm lg:text-sm md:text-sm text-xs font-medium text-black"
+          >
             {{ user?.introduction ?? "N/A" }}
           </p>
         </div>
@@ -112,7 +120,11 @@
               class="w-1/2 h-1/2"
             />
           </div>
-          <h4 class="section__info-title 2xl:text-xl xl:text-xl lg:text-xl md:text-lg text-lg font-bold">Contact</h4>
+          <h4
+            class="section__info-title 2xl:text-xl xl:text-xl lg:text-xl md:text-lg text-lg font-bold"
+          >
+            Contact
+          </h4>
         </div>
 
         <div class="section__info-detail mb-2">
@@ -121,7 +133,9 @@
           >
             Mail
           </p>
-          <p class="section__info-value 2xl:text-sm xl:text-sm lg:text-sm md:text-sm text-xs font-medium text-black">
+          <p
+            class="section__info-value 2xl:text-sm xl:text-sm lg:text-sm md:text-sm text-xs font-medium text-black"
+          >
             {{ user?.email ?? "N/A" }}
           </p>
         </div>
@@ -139,7 +153,11 @@
           >
             {{ social.title ?? "N/A" }}
           </p>
-          <p class="section__info-value 2xl:text-sm xl:text-sm lg:text-sm md:text-sm text-xs font-medium text-black">N/A</p>
+          <p
+            class="section__info-value 2xl:text-sm xl:text-sm lg:text-sm md:text-sm text-xs font-medium text-black"
+          >
+            N/A
+          </p>
         </div>
       </div>
     </div>
