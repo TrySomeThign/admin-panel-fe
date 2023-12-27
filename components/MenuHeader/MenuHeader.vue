@@ -194,22 +194,27 @@ const menuList = ref<{ id: number; title: string; to: string }[]>([
   {
     id: 1,
     title: "Dashboard",
-    to: "/",
+    to: pagePaths.home,
   },
   {
     id: 2,
     title: "Profile",
-    to: "/profile",
+    to: pagePaths.profile,
   },
   {
     id: 3,
     title: "Projects",
-    to: "/projects",
+    to: pagePaths.projects,
   },
   {
     id: 4,
     title: "Skills",
-    to: "/skills",
+    to: pagePaths.skills,
+  },
+  {
+    id: 5,
+    title: "Contact",
+    to: pagePaths.contact,
   },
 ]);
 

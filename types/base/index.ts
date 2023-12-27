@@ -4,9 +4,14 @@ export interface IError {
   stack: string;
 }
 
-export interface IBaseRecord{
-  id:string;
-  createdAt:Date;
-  updatedAt:Date;
+export interface IBaseRecord {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
   deletedAt: Date;
+}
+
+export interface IFilterBase {
+  limit?: number;
+  page?: number;
 }

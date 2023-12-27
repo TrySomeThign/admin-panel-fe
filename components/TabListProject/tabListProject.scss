@@ -1,0 +1,42 @@
+.tab {
+  &__list {
+    transform: translateX(-50%, -50%);
+    padding: 16px;
+  }
+
+
+  &__item {
+    width: 30px;
+    transition: all 0.2s ease-out;
+
+    &.open {
+      width: 110px;
+      transition: all 0.2s ease-out;
+
+      .text {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    &:not(:first-child) {
+      .tab__link {
+        margin-top: 24px;
+      }
+    }
+  }
+
+  &__link {
+    .text {
+      opacity: 0;
+      transition: all 0.2s ease-out;
+      font-family: 'Syne', sans-serif;
+      transform: translateX(100px);
+    }
+  }
+
+}
+
+.icon__arrow {
+  transform: translate(0, -50%);
+}

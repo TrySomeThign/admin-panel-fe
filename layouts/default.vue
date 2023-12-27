@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="position-relative w-screen h-screen">
     <div class="wrapper" v-if="!loading && user">
