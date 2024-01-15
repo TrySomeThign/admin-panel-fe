@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div
     class="wrapper 2xl:mt-16 xl:mt-16 lg:mt-14 mt:mt-10 mt-8 2xl:grid xl:grid md:flex flex 2xl:grid-cols-2 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 flex-col-reverse 2xl:gap-4 xl:gap-4 lg:gap-12 md:gap-12 gap-12"

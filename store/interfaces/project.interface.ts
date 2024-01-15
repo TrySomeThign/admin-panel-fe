@@ -16,3 +16,15 @@ export interface IProject extends IBaseRecord {
   socials: ISocial[];
   category: ICategoryProject;
 }
+
+export interface IPayloadProject {
+  title: string;
+  description?: string;
+  image: string | File | null;
+  technologies: string[];
+  socials: {
+    title: string;
+    url: string;
+  }[];
+  categoryId: string;
+}

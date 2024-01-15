@@ -1,6 +1,6 @@
 <template>
   <ul
-    class="tab__list position-fixed top-1/2 right-14 bg-white border-2 border-solid border-black rounded-md"
+    class="tab__list position-fixed top-1/2 2xl:right-14 xl:right-14 lg:right-14 md:right-12 right-6 bg-white border-2 border-solid border-black rounded-md"
   >
     <li
       class="tab__item flex items-center justify-end gap-2 overflow-hidden"
@@ -17,16 +17,19 @@
             : 'text-black'
         "
       >
-        <span class="text text-lg font-medium text-black">{{ tab.title }}</span>
+        <span
+          class="text 2xl:text-lg xl:text-lg lg:text-lg md:text-lg text-sm font-medium text-black"
+          >{{ tab.title }}</span
+        >
         <div class="tab__icon w-full h-full flex items-center justify-center">
           <div
-            class="position-relative icon flex items-center justify-center w-8 h-8 rounded-sm"
+            class="position-relative icon flex items-center justify-center 2xl:w-8 xl:w-8 lg:w-8 md:w-8 w-6 2xl:h-8 xl:h-8 lg:h-8 md:h-8 h-6 rounded-sm"
             :class="
               fullPath === localPath(tab.path).toString() ? 'bg-blue-royal' : ''
             "
           >
             <div
-              class="ping position-absolute -top-1 -right-1 animate-ping h-3 w-3 rounded-full bg-green-lime opacity-100"
+              class="ping position-absolute -top-1 -right-1 animate-ping 2xl:h-3 xl:h-3 lg:h-3 md:h-3 h-2 2xl:w-3 xl:w-3 lg:w-3 md:w-3 w-2 rounded-full bg-green-lime opacity-100"
               v-if="fullPath === localPath(tab.path).toString()"
             ></div>
             <img
@@ -44,7 +47,7 @@
     </li>
 
     <div
-      class="icon__arrow w-6 h-6 rounded-full bg-blue-royal flex items-center justify-center position-absolute top-1/2 -left-3"
+      class="icon__arrow 2xl:w-6 xl:w-6 lg:w-6 md:w-6 w-5 2xl:h-6 xl:h-6 lg:h-6 md:h-6 h-5 rounded-full bg-blue-royal flex items-center justify-center position-absolute top-1/2 -left-3"
       @click="fullTab = !fullTab"
     >
       <img

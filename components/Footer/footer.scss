@@ -1,0 +1,7 @@
+.link{
+  &__item{
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}

@@ -2,7 +2,8 @@
   &__item {
 
     position: relative;
-    background-color: var(--bg-gray-light);
+    background-color: var(--white-color);
+    box-shadow: var(--box-shadow-button);
     z-index: 0;
     &::after {
       position: absolute;

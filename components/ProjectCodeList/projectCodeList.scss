@@ -1,16 +1,31 @@
 .project {
   &__list {
     margin-top: 80px;
-    grid-auto-rows: 1fr;
+
+    @include mobile {
+      margin-top: 20px;
+    }
+  }
+
+  &__item {
+    @include mobile {
+      border-width: 1px;
+    }
   }
 
   &__info {
     padding: 16px;
+
+    @include mobile {
+      padding: 12px;
+    }
   }
 
   &__title {
     font-family: 'Syne', sans-serif;
   }
+
+
 
   &__tech-list {
     margin-top: 14px;
@@ -28,7 +43,44 @@
       background: var(--white-color);
       color: var(--black-color);
       transition: 0.2s ease-in-out;
-      box-shadow: 4px 4px 0 rgba(0,0,0,1);
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, 1);
+    }
+
+    @include mobile {
+      border-width: 1px;
+      padding: 4px 8px;
+      font-size: 8px;
+    }
+
+  }
+
+  &__manage {
+    padding: 16px;
+
+    @include mobile {
+      padding: 12px;
+    }
+  }
+
+  &__manage-link {
+    background-color: var(--black-color);
+    color: var(--white-color);
+    border: 2px solid var(--black-color);
+    transition: all 0.2s ease-out;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Syne', sans-serif;
+
+    &:hover {
+      background-color: var(--white-color);
+      color: var(--black-color);
+      transition: all 0.2s ease-out;
+    }
+
+    @include mobile{
+      padding: 6px;
     }
   }
 }

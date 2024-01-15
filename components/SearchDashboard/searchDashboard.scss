@@ -1,3 +1,19 @@
+.wrapper{
+  padding: 24px;
+  @include desktop{
+    padding: 48px;
+  }
+
+  @include tablet{
+    padding: 48px;
+
+  }
+
+  @include mobile{
+
+  }
+}
+
 .title {
   font-family: 'Syne', sans-serif;
   filter: drop-shadow(1px 4px 0 rgb(0, 0, 0));
@@ -28,13 +44,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid var(--black-almost-color);
+    border: 2px solid var(--white-color);
     padding: 8px 16px;
     width: 100%;
     border-radius: 100rem;
 
     input {
       width: 100%;
+
+      &::placeholder{
+        color: var(--white-color);
+      }
 
       &:focus {
         outline: none;

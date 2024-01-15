@@ -1,9 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div>
-    <Welcome />
-    <Statistic />
-    <Footer />
+    <FormNewProject />
   </div>
 </template>
 

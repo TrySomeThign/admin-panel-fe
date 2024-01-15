@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="welcome__wrapper position-relative w-fit h-fit">
     <h1

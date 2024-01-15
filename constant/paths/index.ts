@@ -9,6 +9,7 @@ export const pagePaths = {
   projects: `${projectBasePath}`,
   projectDesign: `${projectBasePath}/design`,
   projectUIUX: `${projectBasePath}/uiux`,
+  newProject: `${projectBasePath}/new`,
   skills: "/skills",
   contact: "/contact",
 };

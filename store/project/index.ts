@@ -58,6 +58,14 @@ export const useProjectStore = defineStore("project", {
         throw err.response?._data;
       }
     },
+
+    async createNewProject() {
+      try {
+      } catch (error) {
+        const err = error as FetchError;
+        return err.response?._data;
+      }
+    },
   },
   getters: {
     getCategoryForWebType(): ICategoryProject {
@@ -65,6 +73,9 @@ export const useProjectStore = defineStore("project", {
         (item) => item.type === ETypeCategory.Web,
       )[0];
       return data;
+    },
+    getCategories(): ICategoryProject[] {
+      return this.categories;
     },
   },
 });

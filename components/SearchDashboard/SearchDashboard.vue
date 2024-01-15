@@ -1,12 +1,14 @@
 <template>
-  <div class="wrapper flex items-center justify-center flex-col gap-4">
+  <div
+    class="wrapper flex items-center justify-center flex-col gap-4 bg-blue-royal rounded-md"
+  >
     <h1
-      class="title 2xl:text-6xl xl:text-5xl lg:text-4xl md:text-4xl text-3xl text-center font-black text-white"
+      class="title 2xl:text-6xl xl:text-5xl lg:text-4xl md:text-4xl text-2xl text-center font-black text-white"
     >
       Custom Your portfolio following things you want!
     </h1>
     <p
-      class="description text-base text-center italic font-medium text-gray-400 2xl:mt-4 xl:mt-4 lg:mt-4 md:mt-4 mt-0"
+      class="description 2xl:w-3/5 xl:w-3/5 lg:w-3/5 md:w-3/5 w11/12 text-base text-center italic font-medium text-white 2xl:mt-4 xl:mt-4 lg:mt-4 md:mt-4 mt-0"
     >
       Greetings! I'm {{ user?.name ?? "MinhTai" }}, and this virtual space is
       where my journey, skills, and creativity converge
@@ -24,12 +26,12 @@
             v-model="keyword"
             v-bind="keywordAttrs"
             autofocus
-            class="2xl:text-xl xl:text-base lg:text-base md:text-base text-xs font-bold text-black"
+            class="2xl:text-xl xl:text-base lg:text-base md:text-base text-xs font-bold text-white"
           />
           <button
             type="submit"
-            class="form__btn-search text-white h-full w-fit rounded-full 2xl:text-base xl:text-base lg:text-base md:text-base text-xs font-medium"
-            :class="values.keyword ? 'bg-black' : 'bg-gray-500'"
+            class="form__btn-search text-black h-full w-fit rounded-full 2xl:text-base xl:text-base lg:text-base md:text-base text-xs font-medium"
+            :class="values.keyword ? 'bg-white' : 'bg-slate-400'"
           >
             Search now
           </button>

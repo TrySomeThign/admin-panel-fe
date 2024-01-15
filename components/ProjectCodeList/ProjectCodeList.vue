@@ -1,50 +1,72 @@
 <template>
   <div>
-    <ul class="project__list grid grid-cols-4 gap-4 auto-rows-fr">
-      <li
-        class="project__item w-full h-full bg-white border-2 border-solid border-black"
-        v-for="project in projectData.projects"
-        :key="project.id"
+    <div v-if="projectData.projects.length > 0">
+      <ul
+        class="project__list grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-2 gap-4 auto-rows-fr"
       >
-        <div class="project__image w-full aspect-square">
-          <img
-            :src="project.image"
-            alt="project-image"
-            class="size-full object-cover"
-          />
-        </div>
-        <div class="project__info">
-          <h1 class="project__title text-2xl font-extrabold">
-            {{ project.title }}
-          </h1>
-          <p class="project__description" v-if="project.description">
-            {{ project.description }}
-          </p>
-          <ul
-            class="project__tech-list flex align-items justify-start flex-wrap gap-3"
-            v-if="project.technologies?.length > 0"
-          >
-            <li
-              class="project__tech-item w-fit text-sm font-medium text-center whitespace-nowrap"
-              v-for="(tech, i) in project.technologies"
-              :key="i"
+        <li
+          class="project__item flex items-center justify-between flex-col position-relative w-full h-full bg-white border-2 border-solid border-black"
+          v-for="project in projectData.projects"
+          :key="project.id"
+        >
+          <div class="w-full">
+            <div class="project__image w-full aspect-square">
+              <img
+                :src="project.image"
+                alt="project-image"
+                class="size-full object-cover"
+              />
+            </div>
+            <div class="project__info">
+              <h1
+                class="project__title 2xl:text-2xl xl:text-2xl lg:text-xl md:text-xl text-xs font-extrabold"
+              >
+                {{ project.title }}
+              </h1>
+              <p class="project__description" v-if="project.description">
+                {{ project.description }}
+              </p>
+              <ul
+                class="project__tech-list flex align-items justify-start flex-wrap 2xl:gap-3 xl:gap-3 lg:gap-3 md:gap-2 gap-2"
+                v-if="project.technologies?.length > 0"
+              >
+                <li
+                  class="project__tech-item w-fit 2xl:text-sm xl:text-sm lg:text-sm md:text-xs font-medium text-center whitespace-nowrap"
+                  v-for="(tech, i) in project.technologies"
+                  :key="i"
+                >
+                  {{ tech }}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="project__manage w-full">
+            <nuxt-link
+              :to="localePath(`${pagePaths.projects}/${project.id}`)"
+              class="w-full h-fit project__manage-link block 2xl:text-xl xl:text-base lg:text-base md:text-base text-sm font-medium"
+              >Manage</nuxt-link
             >
-              {{ tech }}
-            </li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-    <PaginationProject :limit="filter.limit" />
+          </div>
+        </li>
+      </ul>
+      <PaginationProject :limit="filter.limit" />
+    </div>
+    <NoneData
+      v-else
+      :message="`Opps! you don't have any project`"
+      :description="`Create new project to enhance your portfolio more cold now!`"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
+import { pagePaths } from "~/constant/paths";
 import { ETypeCategory } from "~/store/interfaces";
 import { useProjectStore } from "~/store/project";
 
 const loadingGetAllProject = ref<boolean>(false);
 const projectStore = useProjectStore();
+const localePath = useLocalePath();
 
 const projectData = computed(() => ({
   projects: projectStore.projects,

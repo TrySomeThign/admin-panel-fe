@@ -1,0 +1,27 @@
+.link{
+  padding: 10px 26px;
+  font-family: 'Syne', sans-serif;
+  border: 2px solid var(--black-color);
+  color: var(--white-color);
+  background-color: var(--black-color);
+  transition: all 0.2s ease-out;
+  font-family: 'Syne', sans-serif;
+
+  &:hover{
+    background-color: var(--white-color);
+    color: var(--black-color);
+    transition: all 0.2s ease-out;
+    box-shadow: 6px 6px 0 rgba(0,0,0,1);
+  }
+
+  @include tablet{
+    padding: 12px 32px;
+    border-width: 1.5px;
+  }
+  @include mobile{
+    padding: 10px 48px;
+    border-width: 1.5px;
+    background-color: var(--white-color);
+    color: var(--black-color);
+  }
+}
