@@ -7,11 +7,11 @@
         projectImagePreview ? 'justify-between gap-4' : 'justify-center gap-0'
       "
     >
-      <form
+      <div
         class="form bg-white"
         :class="projectImagePreview ? 'w-2/5' : 'w-3/4'"
-        @submit.prevent="handleCreateProject"
       >
+        <!-- **** Project Image **** -->
         <div class="form__group">
           <label
             for="input-file-project"
@@ -52,6 +52,7 @@
           >
         </div>
 
+        <!-- **** Project Title **** -->
         <div class="form__group">
           <label class="form__label text-xl font-bold">Title</label>
           <input
@@ -67,6 +68,7 @@
           >
         </div>
 
+        <!-- **** Project Description **** -->
         <div class="form__group">
           <label class="form__label text-xl font-bold">Description</label>
           <textarea
@@ -82,6 +84,7 @@
           >
         </div>
 
+        <!-- **** Project Category **** -->
         <div class="form__group">
           <label class="form__label text-xl font-bold">Category</label>
           <select
@@ -105,6 +108,8 @@
             >{{ errors.categoryId }}</span
           >
         </div>
+
+        <!-- **** Project Socials **** -->
         <div class="form__group">
           <label class="form__label text-xl font-bold">Socials</label>
           <div
@@ -121,16 +126,9 @@
                 alt=""
                 class="social__icon--trash"
                 @click="
-                  () => {
-                    const index = socialInputs.findIndex(
-                      (input) => input.id === id,
-                    );
-
-                    if (index !== -1) {
-                      // Remove the social input from the array
-                      socialInputs.splice(index, 1);
-                    }
-                  }
+                  socialInputs = socialInputs.filter(
+                    (item, index) => index !== i,
+                  )
                 "
               />
             </div>
@@ -191,10 +189,52 @@
           </div>
         </div>
 
-        <button type="submit" class="btn__submit text-lg font-bold">
+        <!-- **** Project Technologies **** -->
+        <div class="form__group" v-if="typeCategory === ETypeCategory.Web">
+          <label class="form__label text-xl font-bold">Technologies</label>
+          <div class="form__group--input">
+            <input
+              type="text"
+              :value="searchTechValue"
+              class="form__input w-full"
+              placeholder="Search technology and hit enter to add if not see"
+              @input="
+                (e: Event) => {
+                  const value = (e.target as HTMLInputElement).value;
+                  handleSearchTech(value);
+                }
+              "
+              @keyup.enter="
+                (e: Event) => {
+                  const value = (e.target as HTMLInputElement).value;
+                  handleAddTechnology(value);
+                }
+              "
+            />
+            <div class="technology__list">
+              <div
+                class="technology__item"
+                v-for="tech in technologiesData.filter((item) =>
+                  item.title
+                    .toLowerCase()
+                    .includes(searchTechValue.toLowerCase()),
+                )"
+                :key="tech.id"
+              >
+                {{ tech.title }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="btn__submit text-lg font-bold"
+          @click="handleCreateProject"
+        >
           Create
         </button>
-      </form>
+      </div>
 
       <div
         :class="values.image ? 'show w-3/5' : 'w-0'"
@@ -273,6 +313,7 @@
 </template>
 
 <script setup lang="ts">
+import { ETypeCategory } from "~/store/interfaces";
 import useFormNewProject from "./composable";
 const {
   title,
@@ -282,10 +323,6 @@ const {
   categoryId,
   categoryIdProps,
   categories,
-  image,
-  imageProps,
-  socials,
-  socialsProps,
   errors,
   values,
   projectImagePreview,
@@ -294,6 +331,11 @@ const {
   technologiesProps,
   socialInputs,
   errorsSocial,
+  typeCategory,
+  technologiesData,
+  searchTechValue,
+  handleAddTechnology,
+  handleSearchTech,
   handleCreateProject,
   handleValidateSocialLink,
   handleChangeImage,

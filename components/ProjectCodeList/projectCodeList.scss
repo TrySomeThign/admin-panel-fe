@@ -6,6 +6,9 @@
       margin-top: 20px;
     }
   }
+  &__list--loading{
+    
+  }
 
   &__item {
     @include mobile {

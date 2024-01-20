@@ -9,13 +9,15 @@
       >
         >>>Develop Coding
       </h1>
-      <ButtonNewProject />
+      <ButtonNewProject :typeCategoryProject="ETypeCategory.Web" />
     </div>
     <ProjectCodeList />
   </NestedLayoutProjectLayout>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ETypeCategory } from "~/store/interfaces";
+</script>
 
 <style scoped>
 .title {

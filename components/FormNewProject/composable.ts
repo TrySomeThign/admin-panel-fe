@@ -1,11 +1,55 @@
 import * as yup from "yup";
 import { regexUrl } from "~/common/regex";
-import type { IPayloadProject } from "~/store/interfaces";
+import type { ETypeCategory, IPayloadProject } from "~/store/interfaces";
 import { useProjectStore } from "~/store/project";
 
 const useFormNewProject = () => {
   const projectStore = useProjectStore();
   const { categories } = storeToRefs(projectStore);
+  const route = useRoute();
+  const { type: typeCategory } = route.query;
+
+  const projectImagePreview = ref<string>("");
+  const socialInputs = ref<{ id: number; value: string; title: string }[]>([]);
+  const optionListSocialPlatform: { title: string }[] = [
+    { title: "Github" },
+    { title: "Instagram" },
+    { title: "LinkedIn" },
+    { title: "Behance" },
+  ];
+
+  const searchTechValue = ref<string>("");
+
+  const technologiesData = ref<{ id: number; title: string }[]>([
+    {
+      id: 1,
+      title: "HTML",
+    },
+    {
+      id: 2,
+      title: "CSS",
+    },
+    {
+      id: 3,
+      title: "Javascript",
+    },
+    {
+      id: 4,
+      title: "React",
+    },
+  ]);
+
+  const handleSearchTech = (title: string) => {
+    searchTechValue.value = title;
+  };
+
+  const handleAddTechnology = (title: string) => {
+    setValues({
+      ...values,
+      technologies: [...values.technologies, title],
+    });
+  };
+
   const { handleSubmit, defineField, errors, values, setValues } =
     useForm<IPayloadProject>({
       initialValues: {
@@ -36,16 +80,6 @@ const useFormNewProject = () => {
     title: "",
     url: "",
   });
-
-  const projectImagePreview = ref<string>("");
-  const socialInputs = ref<{ id: number; value: string; title: string }[]>([]);
-  const optionListSocialPlatform: { title: string }[] = [
-    { title: "Github" },
-    { title: "Instagram" },
-    { title: "LinkedIn" },
-    { title: "Behance" },
-  ];
-
   const handleChangeImage = (e: Event) => {
     const files = (e.target as HTMLInputElement).files;
     if (files && files.length > 0) {
@@ -92,7 +126,27 @@ const useFormNewProject = () => {
 
   const handleCreateProject = handleSubmit(async (values) => {
     try {
-      console.log({ values });
+      // **** Validate when has input length > 0 ****
+      if (socialInputs.value.length > 0) {
+        for (const input of socialInputs.value) {
+          if (!input.value) {
+            errorsSocial.value = {
+              id: input.id,
+              url: "Url is required",
+            };
+            return;
+          }
+        }
+      }
+
+      const payload: IPayloadProject = {
+        ...values,
+        socials: socialInputs.value.map((item) => ({
+          title: item.title,
+          url: item.value,
+        })),
+      };
+      console.log({ payload });
       console.log(socialInputs.value);
     } catch (error) {
       console.log("Error", error);
@@ -123,6 +177,11 @@ const useFormNewProject = () => {
     errors,
     socialInputs,
     errorsSocial,
+    typeCategory,
+    technologiesData,
+    searchTechValue,
+    handleSearchTech,
+    handleAddTechnology,
     handleCreateProject,
     handleValidateSocialLink,
     handleChangeImage,
