@@ -192,7 +192,27 @@
         <!-- **** Project Technologies **** -->
         <div class="form__group" v-if="typeCategory === ETypeCategory.Web">
           <label class="form__label text-xl font-bold">Technologies</label>
-          <div class="form__group--input">
+          <div class="technology__value">
+            <div
+              class="technology__value--item"
+              v-for="(item, i) in technologies"
+              :key="i"
+            >
+              {{ item }}
+              <div
+                class="btn__remove"
+                @click.stop="
+                  () => handleRemoveTechnology({ id: i, title: item })
+                "
+              >
+                x
+              </div>
+            </div>
+          </div>
+          <div
+            class="form__group--input position-relative"
+            @click.stop="openTechnologyList = true"
+          >
             <input
               type="text"
               :value="searchTechValue"
@@ -200,26 +220,36 @@
               placeholder="Search technology and hit enter to add if not see"
               @input="
                 (e: Event) => {
-                  const value = (e.target as HTMLInputElement).value;
+                  let value = (e.target as HTMLInputElement).value;
                   handleSearchTech(value);
                 }
               "
               @keyup.enter="
                 (e: Event) => {
                   const value = (e.target as HTMLInputElement).value;
+                  if (value.length <= 0) return;
                   handleAddTechnology(value);
                 }
               "
             />
-            <div class="technology__list">
+            <div
+              class="technology__list position-absolute top-full w-full overflow-auto shadow-md bg-white"
+              :class="openTechnologyList ? 'h-52 opacity-100' : 'h-0 opacity-0'"
+            >
               <div
-                class="technology__item"
+                class="technology__item hover:bg-blue-300 hover:text-white rounded"
                 v-for="tech in technologiesData.filter((item) =>
                   item.title
                     .toLowerCase()
                     .includes(searchTechValue.toLowerCase()),
                 )"
                 :key="tech.id"
+                @click.stop="
+                  () => {
+                    openTechnologyList = true;
+                    handleAddTechnology(tech.title);
+                  }
+                "
               >
                 {{ tech.title }}
               </div>
@@ -276,7 +306,7 @@
                 v-if="technologies?.length > 0"
               >
                 <li
-                  class="project__tech-item w-fit 2xl:text-sm xl:text-sm lg:text-sm md:text-xs font-medium text-center whitespace-nowrap block transition-all"
+                  class="project__tech-item w-fit 2xl:text-sm xl:text-sm lg:text-sm md:text-xs font-medium text-left break-all block transition-all"
                   v-for="(tech, i) in technologies"
                   :key="i"
                 >
@@ -334,6 +364,8 @@ const {
   typeCategory,
   technologiesData,
   searchTechValue,
+  openTechnologyList,
+  handleRemoveTechnology,
   handleAddTechnology,
   handleSearchTech,
   handleCreateProject,

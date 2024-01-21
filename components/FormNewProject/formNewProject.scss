@@ -179,5 +179,14 @@
     font-family: 'Syne', sans-serif;
   }
 
+}
 
+.technology {
+  &__list {
+    padding: 24px;
+  }
+
+  &__item {
+    padding: 12px;
+  }
 }

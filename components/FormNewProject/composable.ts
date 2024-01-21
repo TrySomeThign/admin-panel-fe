@@ -19,6 +19,7 @@ const useFormNewProject = () => {
   ];
 
   const searchTechValue = ref<string>("");
+  const openTechnologyList = ref<boolean>(false);
 
   const technologiesData = ref<{ id: number; title: string }[]>([
     {
@@ -44,9 +45,27 @@ const useFormNewProject = () => {
   };
 
   const handleAddTechnology = (title: string) => {
+    technologiesData.value = technologiesData.value.filter(
+      (item) => item.title !== title,
+    );
+    searchTechValue.value = "";
     setValues({
       ...values,
       technologies: [...values.technologies, title],
+    });
+  };
+
+  const handleRemoveTechnology = (tech: { id: number; title: string }) => {
+    console.log("tech", tech);
+    technologiesData.value = [
+      ...technologiesData.value,
+      { id: tech.id, title: tech.title },
+    ];
+    setValues({
+      ...values,
+      technologies: [...values.technologies].filter(
+        (item) => item !== tech.title,
+      ),
     });
   };
 
@@ -152,9 +171,16 @@ const useFormNewProject = () => {
       console.log("Error", error);
     }
   });
-
+  const handleOpenTechnologyList = () => {
+    openTechnologyList.value = false;
+  };
   onMounted(() => {
     handleGetAllCategories();
+    window.addEventListener("click", handleOpenTechnologyList);
+  });
+
+  onUnmounted(() => {
+    window.removeEventListener("click", handleOpenTechnologyList);
   });
 
   return {
@@ -180,6 +206,8 @@ const useFormNewProject = () => {
     typeCategory,
     technologiesData,
     searchTechValue,
+    openTechnologyList,
+    handleRemoveTechnology,
     handleSearchTech,
     handleAddTechnology,
     handleCreateProject,
