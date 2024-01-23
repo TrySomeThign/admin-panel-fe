@@ -189,4 +189,14 @@
   &__item {
     padding: 12px;
   }
+
+  &__value--item {
+    padding: 10px 14px;
+    padding-right: 8px;
+  }
+
+  &__btn--remove {
+    width: 25px;
+    height: 25px;
+  }
 }

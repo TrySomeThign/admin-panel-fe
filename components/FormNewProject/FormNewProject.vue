@@ -179,7 +179,7 @@
           </div>
 
           <div
-            class="btn__new-social text-blue-royal font-bold text-lg mt-2"
+            class="btn__new-social text-blue-royal font-bold text-lg mt-2 w-fit"
             @click="
               socialInputs.push({
                 id: Math.floor(Math.random() * 10000),
@@ -195,18 +195,22 @@
         <!-- **** Project Technologies **** -->
         <div class="form__group" v-if="category?.type === ETypeCategory.Web">
           <label class="form__label text-xl font-bold">Technologies</label>
-          <div class="technology__value">
+          <div
+            class="technology__value flex justify-start items-center flex-wrap gap-3 mb-4"
+          >
             <div
-              class="technology__value--item"
-              v-for="(item, i) in technologies"
+              class="technology__value--item w-fit flex justify-start items-center gap-2 text-sm font-medium bg-blue-royal text-white break-all"
+              v-for="(item, i) in technologiesValue"
               :key="i"
             >
-              {{ item }}
+              {{ item.title }}
               <div
-                class="btn__remove"
-                @click.stop="handleRemoveTechnology({ id: i, title: item })"
+                class="technology__btn--remove flex justify-center items-center bg-red-500 text-sm font-bold text-white hover:bg-red-700"
+                @click.stop="
+                  handleRemoveTechnology({ id: item.id, title: item.title })
+                "
               >
-                Remove
+                X
               </div>
             </div>
           </div>
@@ -239,7 +243,7 @@
                   // Handle add tech if hasn't any tech for searching
                   const value = (e.target as HTMLInputElement).value;
                   if (value.length <= 0) return;
-                  handleAddTechnology(value);
+                  handleAddTechnology(uuidv4(), value);
                 }
               "
             />
@@ -262,7 +266,7 @@
                 @click.stop="
                   () => {
                     openTechnologyList = true;
-                    handleAddTechnology(tech.title);
+                    handleAddTechnology(tech.id, tech.title);
                   }
                 "
               >
@@ -319,14 +323,14 @@
               </p>
               <ul
                 class="project__tech-list flex align-items justify-start flex-wrap 2xl:gap-3 xl:gap-3 lg:gap-3 md:gap-2 gap-2"
-                v-if="technologies?.length > 0"
+                v-if="technologiesValue?.length > 0"
               >
                 <li
                   class="project__tech-item w-fit 2xl:text-sm xl:text-sm lg:text-sm md:text-xs font-medium text-left break-all block transition-all"
-                  v-for="(tech, i) in technologies"
+                  v-for="(tech, i) in technologiesValue"
                   :key="i"
                 >
-                  {{ tech }}
+                  {{ tech.title }}
                 </li>
               </ul>
 
@@ -361,6 +365,7 @@
 <script setup lang="ts">
 import { ETypeCategory } from "~/store/interfaces";
 import useFormNewProject from "./composable";
+import { v4 as uuidv4 } from "uuid";
 const {
   title,
   titleProps,
@@ -373,12 +378,12 @@ const {
   values,
   projectImagePreview,
   optionListSocialPlatform,
-  technologies,
   socialInputs,
   errorsSocial,
   technologiesData,
   searchTechValue,
   openTechnologyList,
+  technologiesValue,
   handleRemoveTechnology,
   handleAddTechnology,
   handleSearchTech,

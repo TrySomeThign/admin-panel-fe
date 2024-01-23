@@ -2,7 +2,6 @@ import * as yup from "yup";
 import { regexUrl } from "~/common/regex";
 import { type IPayloadProject } from "~/store/interfaces";
 import { useProjectStore } from "~/store/project";
-
 const useFormNewProject = () => {
   const projectStore = useProjectStore();
   const { categories } = storeToRefs(projectStore);
@@ -18,58 +17,56 @@ const useFormNewProject = () => {
 
   const searchTechValue = ref<string>("");
   const openTechnologyList = ref<boolean>(false);
+  const technologiesValue = ref<{ id: string; title: string }[]>([]);
 
-  const technologiesData = ref<{ id: number; title: string }[]>([
+  const technologiesData = ref<{ id: string; title: string }[]>([
     {
-      id: 1,
+      id: "htmlid",
       title: "HTML",
     },
     {
-      id: 2,
+      id: "cssid",
       title: "CSS",
     },
     {
-      id: 3,
+      id: "jsid",
       title: "Javascript",
     },
     {
-      id: 4,
+      id: "reactid",
       title: "React",
     },
   ]);
+  const technologiesClone = [...technologiesData.value];
 
   const handleSearchTech = (title: string) => {
     searchTechValue.value = title;
   };
 
-  const handleAddTechnology = (title: string) => {
+  const handleAddTechnology = (id: string, title: string) => {
     technologiesData.value = technologiesData.value.filter(
       (item) => item.title !== title,
     );
     searchTechValue.value = "";
-    setValues({
-      ...values,
-      technologies: [...values.technologies, title],
-    });
+    technologiesValue.value = [...technologiesValue.value, { id, title }];
   };
 
-  const handleRemoveTechnology = (tech: { id: number; title: string }) => {
-    console.log("tech", tech);
-    if (tech.id) {
+  const handleRemoveTechnology = (tech: { id: string; title: string }) => {
+    const techExist = technologiesClone.findIndex(
+      (item) => item.id === tech.id,
+    );
+    console.log("techExist", techExist);
+    if (techExist !== -1) {
       const _technologies = [
         ...technologiesData.value,
         { id: tech.id, title: tech.title },
       ];
-      _technologies.sort((a, b) => a.id - b.id);
       technologiesData.value = _technologies;
     }
 
-    setValues({
-      ...values,
-      technologies: [...values.technologies].filter(
-        (item) => item !== tech.title,
-      ),
-    });
+    technologiesValue.value = [...technologiesValue.value].filter(
+      (item) => item.id !== tech.id,
+    );
   };
 
   const { handleSubmit, defineField, errors, values, setValues } =
@@ -99,7 +96,6 @@ const useFormNewProject = () => {
   const [category, categoryProps] = defineField("category");
   const [image, imageProps] = defineField("image");
   const [socials, socialsProps] = defineField("socials");
-  const [technologies, technologiesProps] = defineField("technologies");
   const errorsSocial = ref<{ id: number; title?: string; url?: string }>({
     id: 0,
     title: "",
@@ -170,6 +166,7 @@ const useFormNewProject = () => {
           title: item.title,
           url: item.value,
         })),
+        technologies: technologiesValue.value.map((item) => item.title),
       };
       console.log({ payload });
       console.log(socialInputs.value);
@@ -202,8 +199,6 @@ const useFormNewProject = () => {
     socials,
     socialsProps,
     optionListSocialPlatform,
-    technologies,
-    technologiesProps,
     projectImagePreview,
     values,
     errors,
@@ -212,6 +207,7 @@ const useFormNewProject = () => {
     technologiesData,
     searchTechValue,
     openTechnologyList,
+    technologiesValue,
     handleRemoveTechnology,
     handleSearchTech,
     handleAddTechnology,
