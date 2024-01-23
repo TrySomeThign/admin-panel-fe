@@ -88,14 +88,17 @@
         <div class="form__group">
           <label class="form__label text-xl font-bold">Category</label>
           <select
-            v-model="categoryId"
-            v-bind="categoryIdProps"
+            v-model="category"
+            v-bind="categoryProps"
             id="category-project"
             class="form__select w-full bg-white text-lg font-medium"
           >
-            <option value="">Select type for project</option>
+            <option :value="{}">Select type for project</option>
             <option
-              :value="category.id"
+              :value="{
+                id: category.id,
+                type: category.type,
+              }"
               :key="category.id"
               class="option__category-item"
               v-for="category in categories"
@@ -105,7 +108,7 @@
           </select>
           <span
             class="form__error text-red-500 block text-lg font-medium mt-2"
-            >{{ errors.categoryId }}</span
+            >{{ errors.category }}</span
           >
         </div>
 
@@ -190,7 +193,7 @@
         </div>
 
         <!-- **** Project Technologies **** -->
-        <div class="form__group" v-if="typeCategory === ETypeCategory.Web">
+        <div class="form__group" v-if="category?.type === ETypeCategory.Web">
           <label class="form__label text-xl font-bold">Technologies</label>
           <div class="technology__value">
             <div
@@ -201,11 +204,9 @@
               {{ item }}
               <div
                 class="btn__remove"
-                @click.stop="
-                  () => handleRemoveTechnology({ id: i, title: item })
-                "
+                @click.stop="handleRemoveTechnology({ id: i, title: item })"
               >
-                x
+                Remove
               </div>
             </div>
           </div>
@@ -220,12 +221,22 @@
               placeholder="Search technology and hit enter to add if not see"
               @input="
                 (e: Event) => {
+                  // Handle change and search tech
                   let value = (e.target as HTMLInputElement).value;
                   handleSearchTech(value);
                 }
               "
+              @keydown.space="
+                (event) => {
+                  // Prevent whitespace on first letter
+                  if (searchTechValue.length <= 0) {
+                    event.preventDefault();
+                  }
+                }
+              "
               @keyup.enter="
                 (e: Event) => {
+                  // Handle add tech if hasn't any tech for searching
                   const value = (e.target as HTMLInputElement).value;
                   if (value.length <= 0) return;
                   handleAddTechnology(value);
@@ -233,8 +244,12 @@
               "
             />
             <div
-              class="technology__list position-absolute top-full w-full overflow-auto shadow-md bg-white"
-              :class="openTechnologyList ? 'h-52 opacity-100' : 'h-0 opacity-0'"
+              class="technology__list position-absolute top-full w-full overflow-auto shadow-md bg-white transition-all"
+              :class="
+                openTechnologyList
+                  ? 'h-52 opacity-100 transition-all'
+                  : 'h-0 opacity-0 transition-all'
+              "
             >
               <div
                 class="technology__item hover:bg-blue-300 hover:text-white rounded"
@@ -266,6 +281,7 @@
         </button>
       </div>
 
+      <!-- **** Project preview **** -->
       <div
         :class="values.image ? 'show w-3/5' : 'w-0'"
         class="project__preview-wrapper w-3/5 flex items-center justify-center bg-blue-royal"
@@ -290,7 +306,7 @@
                 v-if="categories.length > 0"
               >
                 {{
-                  categories.filter((item) => item.id === categoryId)[0]?.type
+                  categories.filter((item) => item.id === category?.id)[0]?.type
                 }}
               </div>
               <h1
@@ -350,18 +366,16 @@ const {
   titleProps,
   description,
   descriptionProps,
-  categoryId,
-  categoryIdProps,
+  category,
+  categoryProps,
   categories,
   errors,
   values,
   projectImagePreview,
   optionListSocialPlatform,
   technologies,
-  technologiesProps,
   socialInputs,
   errorsSocial,
-  typeCategory,
   technologiesData,
   searchTechValue,
   openTechnologyList,

@@ -1,13 +1,11 @@
 import * as yup from "yup";
 import { regexUrl } from "~/common/regex";
-import type { ETypeCategory, IPayloadProject } from "~/store/interfaces";
+import { type IPayloadProject } from "~/store/interfaces";
 import { useProjectStore } from "~/store/project";
 
 const useFormNewProject = () => {
   const projectStore = useProjectStore();
   const { categories } = storeToRefs(projectStore);
-  const route = useRoute();
-  const { type: typeCategory } = route.query;
 
   const projectImagePreview = ref<string>("");
   const socialInputs = ref<{ id: number; value: string; title: string }[]>([]);
@@ -57,10 +55,15 @@ const useFormNewProject = () => {
 
   const handleRemoveTechnology = (tech: { id: number; title: string }) => {
     console.log("tech", tech);
-    technologiesData.value = [
-      ...technologiesData.value,
-      { id: tech.id, title: tech.title },
-    ];
+    if (tech.id) {
+      const _technologies = [
+        ...technologiesData.value,
+        { id: tech.id, title: tech.title },
+      ];
+      _technologies.sort((a, b) => a.id - b.id);
+      technologiesData.value = _technologies;
+    }
+
     setValues({
       ...values,
       technologies: [...values.technologies].filter(
@@ -75,14 +78,17 @@ const useFormNewProject = () => {
         title: "",
         description: "",
         image: null,
-        categoryId: "",
+        category: {},
         socials: [],
         technologies: [],
       },
       validationSchema: {
         title: yup.string().required("Title is required"),
         description: yup.string(),
-        categoryId: yup.string().required("Type for project is required"),
+        category: yup.object().shape({
+          id: yup.string().required("Category is required"),
+          type: yup.string().required("Category is required"),
+        }),
         image: yup.mixed().required("Image project is required"),
         socials: yup.array(),
         technologies: yup.array().of(yup.string()),
@@ -90,7 +96,7 @@ const useFormNewProject = () => {
     });
   const [title, titleProps] = defineField("title");
   const [description, descriptionProps] = defineField("description");
-  const [categoryId, categoryIdProps] = defineField("categoryId");
+  const [category, categoryProps] = defineField("category");
   const [image, imageProps] = defineField("image");
   const [socials, socialsProps] = defineField("socials");
   const [technologies, technologiesProps] = defineField("technologies");
@@ -188,8 +194,8 @@ const useFormNewProject = () => {
     titleProps,
     description,
     descriptionProps,
-    categoryId,
-    categoryIdProps,
+    category,
+    categoryProps,
     categories,
     image,
     imageProps,
@@ -203,7 +209,6 @@ const useFormNewProject = () => {
     errors,
     socialInputs,
     errorsSocial,
-    typeCategory,
     technologiesData,
     searchTechValue,
     openTechnologyList,

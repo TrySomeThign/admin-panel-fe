@@ -2,7 +2,7 @@ import type { pagePaths } from '~/constant/paths';
 <template>
   <div class="">
     <nuxt-link
-      :to="localePath(`${pagePaths.newProject}?type=${typeCategoryProject}`)"
+      :to="localePath(`${pagePaths.newProject}`)"
       class="link block 2xl:text-base base:text-base lg:text-base md:text-sm text-xs font-medium"
       >New project</nuxt-link
     >
@@ -11,9 +11,7 @@ import type { pagePaths } from '~/constant/paths';
 
 <script setup lang="ts">
 import { pagePaths } from "~/constant/paths";
-
 const localePath = useLocalePath();
-const { typeCategoryProject } = defineProps<{ typeCategoryProject: string }>();
 </script>
 
 <style scoped>

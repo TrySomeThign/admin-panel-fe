@@ -1,0 +1,41 @@
+.title {
+  font-family: "Syne", sans-serif;
+  letter-spacing: 2px;
+}
+
+.form {
+  transition: all 0.2s linear;
+  padding: 48px;
+
+  @include mobile{
+    padding: 24px;
+  }
+  &.enough-field {
+    border: 2px solid var(--blue-royal);
+    transition: all 0.2s linear;
+  }
+}
+
+.form-input {
+  border: 2px solid var(--bg-gray-light);
+  padding: 16px;
+  @include mobile{
+    padding: 14px;
+  }
+  &:focus {
+    border-color: var(--blue-royal);
+    outline-color: var(--blue-royal);
+  }
+}
+
+.btn-submit {
+  background-color: var(--blue-royal);
+  padding: 16px;
+
+  @include mobile{
+    padding: 14px;
+  }
+  .icon__loading {
+    animation: Rotate 0.5s linear infinite;
+  }
+}

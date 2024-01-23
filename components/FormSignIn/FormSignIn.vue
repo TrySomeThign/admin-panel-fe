@@ -1,11 +1,13 @@
 <template>
   <div class="flex items-center justify-center h-screen">
     <form
-      class="form bg-white h-fit flex items-center justify-center p-9 flex-col 2xl:w-3/12 xl:w-2/5 lg:w-3/5 md:w-3/4 sm:w-full border-2 border-white"
+      class="form bg-white h-fit flex items-center justify-center flex-col 2xl:w-3/12 xl:w-2/5 lg:w-3/5 md:w-3/4 w-11/12 border-2 border-white"
       :class="isEnoughField ? 'enough-field' : ''"
       @submit.prevent="handleSignIn"
     >
-      <h1 class="text-5xl font-black title mb-12">
+      <h1
+        class="2xl:text-5xl xl:text-5xl lg:text-4xl md:text-3xl text-3xl font-black title 2xl:mb-12 xl:mb-12 lg:mb-10 md:mb-8 mb-8"
+      >
         {{ $t("form_signIn_title") }}
       </h1>
       <div class="form-group w-full">
@@ -14,7 +16,7 @@
           v-model="emailOrUsername"
           placeholder="admin@gmail.com"
           autofocus
-          class="form-input px-4 py-5 text-xl font-medium w-full text-emerald-900 border-2 rounded border-stone-20"
+          class="form-input 2xl:text-xl xl:text-xl lg:text-xl md:text-xl text-sm font-medium w-full text-emerald-900 border-2 rounded border-stone-20"
           v-bind="emailProps"
         />
         <span class="block text-sm font-medium text-red-600 mt-2">{{
@@ -26,7 +28,7 @@
           type="password"
           v-model="password"
           placeholder="********"
-          class="form-input px-4 py-5 text-xl font-medium w-full text-emerald-900 border-2 rounded border-stone-20"
+          class="form-input 2xl:text-xl xl:text-xl lg:text-xl md:text-xl text-sm font-medium w-full text-emerald-900 border-2 rounded border-stone-20"
           v-bind="passwordProps"
         />
         <span class="block text-sm font-medium text-red-600 mt-2">{{
@@ -40,7 +42,7 @@
       >
       <button
         type="submit"
-        class="btn-submit mt-4 w-full p-4 text-white text-lg font-bold"
+        class="btn-submit mt-4 w-full text-white 2xl:text-lg xl:text-lg lg:text-lg md:text-base text-sm font-bold"
       >
         Sign In
         <v-icon v-if="loading" icon="mdi-loading" class="icon__loading" />
@@ -111,30 +113,5 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.title {
-  font-family: "Syne", sans-serif;
-  letter-spacing: 2px;
-}
-
-.form {
-  transition: all 0.2s linear;
-  &.enough-field {
-    border: 2px solid var(--blue-royal);
-    transition: all 0.2s linear;
-  }
-}
-
-.form-input {
-  &:focus {
-    border-color: var(--blue-royal);
-    outline-color: var(--blue-royal);
-  }
-}
-
-.btn-submit {
-  background-color: var(--blue-royal);
-  .icon__loading {
-    animation: Rotate 0.5s linear infinite;
-  }
-}
+@import "./formSignIn.scss";
 </style>
