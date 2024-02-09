@@ -1,6 +1,6 @@
 import * as yup from "yup";
 import { regexUrl } from "~/common/regex";
-import { type IPayloadProject } from "~/store/interfaces";
+import { type IPayloadProject, type IProject } from "~/store/interfaces";
 import { useProjectStore } from "~/store/project";
 const useFormNewProject = () => {
   const projectStore = useProjectStore();
@@ -146,6 +146,8 @@ const useFormNewProject = () => {
   };
 
   const handleCreateProject = handleSubmit(async (values) => {
+    const formData = new FormData();
+    formData.append("image", values.image ?? "");
     try {
       // **** Validate when has input length > 0 ****
       if (socialInputs.value.length > 0) {
@@ -168,8 +170,8 @@ const useFormNewProject = () => {
         })),
         technologies: technologiesValue.value.map((item) => item.title),
       };
-      console.log({ payload });
-      console.log(socialInputs.value);
+      const newProject: IProject = await projectStore.createNewProject(payload);
+      await projectStore.uploadFile(newProject.id, formData);
     } catch (error) {
       console.log("Error", error);
     }

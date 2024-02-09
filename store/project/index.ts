@@ -1,3 +1,4 @@
+import type { IPayloadProject } from "./../interfaces/project.interface";
 import type { FetchError } from "ofetch";
 import {
   ETypeCategory,
@@ -59,8 +60,29 @@ export const useProjectStore = defineStore("project", {
       }
     },
 
-    async createNewProject() {
+    async createNewProject(payload: IPayloadProject) {
       try {
+        const { data }: { data: IProject } = await $fetch(`/projects`, {
+          method: "POST",
+          body: JSON.stringify(payload),
+        });
+        return data;
+      } catch (error) {
+        const err = error as FetchError;
+        return err.response?._data;
+      }
+    },
+
+    async uploadFile(projectId: string, file: FormData) {
+      try {
+        const { data }: { data: string } = await $fetch(
+          `/projects/upload/${projectId}`,
+          {
+            method: "POST",
+            body: file,
+          },
+        );
+        return data;
       } catch (error) {
         const err = error as FetchError;
         return err.response?._data;
