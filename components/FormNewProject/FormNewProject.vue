@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="title text-center text-5xl font-extrabold">Project creation</h1>
+    <h1 class="title text-center text-5xl font-extrabold">Project Creation</h1>
     <div
       class="flex items-stretch transition-all"
       :class="
@@ -11,6 +11,9 @@
         class="form bg-white"
         :class="projectImagePreview ? 'w-2/5' : 'w-3/4'"
       >
+        <!-- **** BACK LINK **** -->
+        <ButtonPreviousPage title="Back to projects" />
+
         <!-- **** Project Image **** -->
         <div class="form__group">
           <label

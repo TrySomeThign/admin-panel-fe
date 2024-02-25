@@ -211,24 +211,23 @@ const user = computed(() => {
   return authStore.user;
 });
 
-const { defineField, errors, handleSubmit, setValues } =
-  useForm<IPayloadEditProfile>({
-    initialValues: {
-      avatar: authStore.user?.avatar ?? null,
-      displayName: authStore.user?.displayName ?? "",
-      email: authStore.user?.email ?? "",
-      introduction: authStore.user?.introduction ?? "",
-      jobTitle: authStore.user?.jobTitle ?? "",
-      name: authStore.user?.name ?? "",
-      role: authStore.user?.role ?? EUserRole.Admin,
-    },
-  });
+const { defineField, handleSubmit, setValues } = useForm<IPayloadEditProfile>({
+  initialValues: {
+    avatar: authStore.user?.avatar ?? null,
+    displayName: authStore.user?.displayName ?? "",
+    email: authStore.user?.email ?? "",
+    introduction: authStore.user?.introduction ?? "",
+    jobTitle: authStore.user?.jobTitle ?? "",
+    name: authStore.user?.name ?? "",
+    role: authStore.user?.role ?? EUserRole.Admin,
+  },
+});
 
 const avatarPreview = ref<string>("");
 const isFileChange = ref<boolean>(false);
 const loadingUpdateProfile = ref<boolean>(false);
 const showModalSuccess = ref<boolean>(false);
-const [avatar, avatarProps] = defineField("avatar");
+// const [avatar, avatarProps] = defineField("avatar");
 const [email, emailProps] = defineField("email");
 const [displayName, displayNameProps] = defineField("displayName");
 const [name, nameProps] = defineField("name");
