@@ -30,14 +30,10 @@
   --black-color: #000;
   --bg-gray-light: #d7d7d7;
   --box-shadow-button: transparent 0px 0px 0px 0px, transparent 0px 0px 0px 0px, rgba(0, 0, 0, .12) 0px 1px 1px 0px, rgba(64, 68, 82, .16) 0px 0px 0px 1px, transparent 0px 0px 0px 0px, transparent 0px 0px 0px 0px, rgba(64, 68, 82, .08) 0px 2px 5px 0px;
-}
-
-@font-face {
-  font-family: 'Integral CF';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url('../../public/fonts/Fontspring-DEMO-integralcf-regular.otf') format('truetype');
+  --color-cod-gray: #0A0A0A;
+  --color-silver: #C7C7C7;
+  --color-scorpion: #565656;
+  --color-green-suckle: #DCFF7D;
 }
 
 * {
