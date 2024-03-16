@@ -1,5 +1,5 @@
 <template>
-  <div class="text-silver mt-40 pb-20 md:mt-0">
+  <div class="text-silver mt-40 pb-20 md:pb-0 md:mt-0">
     <div class="item-email flex items-center justify-end gap-3 flex-wrap">
       <span class="text-sm contact-item text-scorpion">email :</span>
       <span
