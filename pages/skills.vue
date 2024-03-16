@@ -3,6 +3,10 @@
   <div>Skill page</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+definePageMeta({
+  layout: "guest-layout",
+});
+</script>
 
 <style scoped></style>

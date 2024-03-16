@@ -3,18 +3,25 @@
   justify-content: flex-start;
   align-items: flex-start;
   width: fit-content;
-  padding: 14px;
+  padding: 14px 20px;
   border: 1px solid var(--color-scorpion);
   color: var(--color-scorpion);
   border-radius: 10px;
   gap: 4px;
   transition: all 0.2s linear;
-  &:hover{
+
+  &:hover {
     border-color: var(--color-green-suckle);
   }
+
   &:hover .character-item {
     font-variation-settings: "wdth" 200, "HGHT" 200;
-    transition: font-variation-settings 0.4s cubic-bezier(.25, 1, .5, 1);
+    color: var(--color-green-suckle);
+    transition: font-variation-settings color 0.4s cubic-bezier(.25, 1, .5, 1);
+  }
+
+  @include mobile {
+    width: 100%;
   }
 }
 
@@ -30,9 +37,13 @@
 }
 
 .character-item {
-  font-size: 50px;
+  font-size: 70px;
   font-family: 'flexible', sans-serif;
   font-variation-settings: "wdth" 200, "HGHT" 1000;
   line-height: 1;
   transition: font-variation-settings 0.4s cubic-bezier(.25, 1, .5, 1);
+
+  @include mobile {
+    font-size: 50px;
+  }
 }

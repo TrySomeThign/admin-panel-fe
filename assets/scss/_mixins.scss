@@ -58,3 +58,11 @@
     transform: scaleY(1.2);
   }
 }
+@mixin hiddenScrollbar {
+  scrollbar-width: 0;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+}

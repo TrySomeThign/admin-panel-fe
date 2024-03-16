@@ -1,26 +1,29 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="w-100 h-screen bg-cod-gray home-page">
-    <div class="wrapper">
-      <LogoApp />
-      <div class="dashboard-description mt-4">
-        <span class="page-title text-sm">{{
-          $t("dashboardPage.dashboardPage")
-        }}</span>
-        <span class="page-description text-sm">{{
-          $t("dashboardPage.clickTheTabToView")
-        }}</span>
-      </div>
+  <div class="relative h-full pt-10 md:pt-20">
+    <div class="dashboard-description mt-4">
+      <span class="page-title text-sm">{{
+        $t("dashboardPage.dashboardPage")
+      }}</span>
+      <span class="page-description text-sm">{{
+        $t("dashboardPage.clickTheTabToView")
+      }}</span>
+    </div>
 
-      <DashboardTitle />
-      <DashboardTabs />
+    <DashboardTitle />
+    <DashboardTabs />
+
+    <div
+      class="contact-section relative md:absolute md:bottom-[15%] md:right-[2%]"
+    >
+      <ContactSection />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
-  layout: "without-header",
+  layout: "guest-layout",
 });
 </script>
 
@@ -38,12 +41,5 @@ definePageMeta({
   font-family: "supply", sans-serif;
   color: var(--color-silver);
   margin-left: 10px;
-}
-
-.wrapper {
-  padding: 16px;
-  border: 1px solid var(--color-scorpion);
-  border-radius: 10px;
-  height: calc(100vh - 48px);
 }
 </style>

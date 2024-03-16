@@ -52,6 +52,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
     "@vee-validate/nuxt",
+    "@vueuse/nuxt",
   ],
   vite: {
     vue: {
@@ -63,6 +64,7 @@ export default defineNuxtConfig({
       preprocessorOptions: {
         scss: {
           additionalData: '@use "@/assets/scss/_responsive.scss" as *;',
+          fontData: '@use "@/assets/scss/_fonts.scss" as *;',
         },
       },
     },
@@ -103,6 +105,7 @@ export default defineNuxtConfig({
     NODE_ENV: process.env.NUXT_PUBLIC_NODE_ENV,
     public: {
       apiUrl: `${process.env.NUXT_PUBLIC_API_URL}/api/v1/` || "/api/v1",
+      email: process.env.NUXT_PUBLIC_EMAIL_MYSELF || "tyler@trysomethign.com",
     },
   },
 });

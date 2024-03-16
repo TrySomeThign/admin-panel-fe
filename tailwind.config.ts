@@ -3,6 +3,11 @@ export default <Partial<Config>>{
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        supply: ["supply"],
+        integralCF: ["IntegralCF"],
+        flexible: ["flexible"],
+      },
       colors: {
         "gray-light": "#e5e5e5",
         "gray-dark": "#151313",

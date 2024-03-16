@@ -1,5 +1,9 @@
 <template>
-  <a class="logo" href="/">
+  <NuxtLink
+    :to="localePath(`${pagePaths.home}`)"
+    class="logo fixed top-10 left-10 mb-4 lg:mb-20 z-[2000]"
+    href="/"
+  >
     <div
       v-for="(character, i) in logoCharacters"
       :key="i"
@@ -12,9 +16,12 @@
         {{ character.title }}
       </div>
     </div>
-  </a>
+  </NuxtLink>
 </template>
 <script setup lang="ts">
+import { pagePaths } from "~/constant/paths";
+
+const localePath = useLocalePath();
 const logoCharacters: { id: number | null; title: string }[] = [
   { id: 1, title: "T" },
   { id: 2, title: "Y" },

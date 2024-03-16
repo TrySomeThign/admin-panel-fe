@@ -1,6 +1,13 @@
 <template>
-  <div class="dashboard-tabs">
-    <div class="dashboard-tab-item" v-for="(tab, i) in tabs" :key="i">
+  <div
+    class="dashboard-tabs mt-9 flex items-center justify-start gap-5 flex-wrap"
+  >
+    <NuxtLink
+      :to="localePath(tab.link)"
+      class="dashboard-tab-item"
+      v-for="(tab, i) in tabs"
+      :key="i"
+    >
       <div class="dashboard-tab-number">0{{ i + 1 }}:</div>
       <div class="character-list flex items-center justify-center gap-1">
         <div
@@ -13,36 +20,47 @@
           {{ character.text }}
         </div>
       </div>
-    </div>
+    </NuxtLink>
   </div>
 </template>
 <script lang="ts" setup>
+import { pagePaths } from "~/constant/paths";
+const localePath = useLocalePath();
+
 interface ITab {
   id: number;
   characters: { id: number | null; text: string }[];
+  link: string;
 }
-const tabUIUX = [
-  "U",
-  "I",
-  "/",
-  "U",
-  "X",
-  " ",
-  " ",
-  "D",
-  "E",
-  "S",
-  "I",
-  "G",
-  "N",
-];
+const textFeatureWork = "F E A T U R E    W O R K";
+const textSkills = "S K I L L S";
+const textContact = "C O N T A C T";
 const tabs: ITab[] = [
   {
     id: 1,
-    characters: tabUIUX.map((item, i) => ({
+    characters: textFeatureWork.split(" ").map((item, i) => ({
       id: item.startsWith(" ") ? null : i + 1,
       text: item,
     })),
+    link: pagePaths.featureWork,
+  },
+
+  {
+    id: 2,
+    characters: textSkills.split(" ").map((item, i) => ({
+      id: item.startsWith(" ") ? null : i + 1,
+      text: item,
+    })),
+    link: pagePaths.skills,
+  },
+
+  {
+    id: 3,
+    characters: textContact.split(" ").map((item, i) => ({
+      id: item.startsWith(" ") ? null : i + 1,
+      text: item,
+    })),
+    link: pagePaths.contact,
   },
 ];
 </script>

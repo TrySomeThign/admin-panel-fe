@@ -12,6 +12,7 @@ export const pagePaths = {
   newProject: `${projectBasePath}/new`,
   skills: "/skills",
   contact: "/contact",
+  featureWork: "/feature-work",
 };
 
 export const avatarPlaceholderPath = "/images/avatar-placeholder.gif";

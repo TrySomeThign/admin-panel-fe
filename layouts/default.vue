@@ -1,5 +1,9 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
+  <Head>
+    <Title>{{ title }}</Title>
+    <Meta name="description" :content="title" />
+  </Head>
   <div class="position-relative w-screen h-screen">
     <div class="wrapper" v-if="!loading && user">
       <Header />
@@ -26,6 +30,8 @@
 </template>
 
 <script setup lang="ts">
+const title = ref("Tyler Tran");
+
 import { pagePaths } from "~/constant/paths";
 import { useAuthStore } from "~/store/auth";
 const localePath = useLocalePath();
