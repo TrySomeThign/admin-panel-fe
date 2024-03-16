@@ -16,13 +16,13 @@
       <NuxtLink
         :to="contact.url"
         target="_blank"
-        class="contact-item hover:text-green-suckle"
+        class="contact-item font-supply hover:text-green-suckle"
         v-for="contact in contactList"
         :key="contact.id"
       >
         →
         <span
-          class="text-sm color-silver font-normal font-flexible letter tracking-widest"
+          class="text-sm color-silver font-normal font-supply letter tracking-widest"
         >
           {{ contact.title }}
         </span>
@@ -32,7 +32,8 @@
 </template>
 
 <script setup lang="ts">
-const email = process.env.NUXT_PUBLIC_EMAIL_MYSELF ?? "";
+const runtimeConfig = useRuntimeConfig();
+const email = runtimeConfig.public.email;
 const contactList: { id: number; title: string; url: string }[] = [
   {
     id: 1,

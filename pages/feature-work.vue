@@ -32,8 +32,8 @@ import { pagePaths } from "~/constant/paths";
 definePageMeta({
   layout: "guest-layout",
 });
-
-const email = process.env.NUXT_PUBLIC_EMAIL_MYSELF;
+const runtimeConfig = useRuntimeConfig();
+const email = runtimeConfig.public.email;
 </script>
 
 <style scoped>
