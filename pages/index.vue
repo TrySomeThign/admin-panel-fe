@@ -1,11 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="relative h-full pt-10 md:pt-20">
-    <div class="dashboard-description mt-4">
-      <span class="page-title text-sm">{{
+  <div class="tw-relative tw-h-full tw-pt-20 md:tw-pt-20">
+    <div class="dashboard-description tw-mt-4">
+      <span class="page-title tw-text-sm">{{
         $t("dashboardPage.dashboardPage")
       }}</span>
-      <span class="page-description text-sm">{{
+      <span class="page-description tw-text-sm">{{
         $t("dashboardPage.clickTheTabToView")
       }}</span>
     </div>
@@ -14,7 +14,7 @@
     <DashboardTabs />
 
     <div
-      class="contact-section relative md:absolute md:bottom-[15%] md:right-[2%]"
+      class="contact-section tw-relative md:tw-absolute md:tw-bottom-[15%] md:tw-right-[2%]"
     >
       <ContactSection />
     </div>

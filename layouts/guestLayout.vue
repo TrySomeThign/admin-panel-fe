@@ -1,13 +1,13 @@
 <template>
   <div
-    class="w-100 h-screen bg-cod-gray home-page flex items-center justify-center px-5"
+    class="tw-w-100 tw-h-screen tw-bg-cod-gray home-page tw-flex tw-items-center tw-justify-center tw-px-5 tw-overflow-hidden"
   >
     <Head>
       <Title>{{ title }}</Title>
       <Meta name="description" :content="title" />
     </Head>
     <div
-      class="wrapper relative w-full"
+      class="wrapper tw-relative tw-w-full"
       :ref="refWrapper"
       @scroll="handleScrollWrapper"
     >

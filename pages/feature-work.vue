@@ -1,39 +1,25 @@
 <template>
-  <div class="wrapper text-silver">
-    <div
-      class="header w-full flex items-start md:items-center justify-between flex-col md:flex-row"
-    >
-      <div class=""></div>
-      <div class="email">
-        <span class="text-base font-medium font-supply text-scorpion"
-          >copy :
-        </span>
-        <span class="text-green-suckle text-base font-medium font-supply">{{
-          email
-        }}</span>
-      </div>
-      <div class="book">
-        <span class="text-base font-medium font-supply text-scorpion"
-          >click :
-        </span>
-        <NuxtLink
-          :to="pagePaths.contact"
-          class="text-base font-medium font-supply text-green-suckle"
-          >book call</NuxtLink
-        >
-      </div>
+  <div class="wrapper tw-text-silver tw-pb-20">
+    <HeaderGuest />
+    <div class="tw-flex tw-mt-10 lg:tw-mt-20 tw-gap-20">
+      <TabsFeatureWork
+        :tab-active="tabActive"
+        @update-tab-active="updateTabActive"
+      />
+      <FeatureWorkList />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { pagePaths } from "~/constant/paths";
-
 definePageMeta({
   layout: "guest-layout",
 });
-const runtimeConfig = useRuntimeConfig();
-const email = runtimeConfig.public.email;
+
+const tabActive = ref<string>("d");
+const updateTabActive = (newValue: string) => {
+  tabActive.value = newValue;
+};
 </script>
 
 <style scoped>

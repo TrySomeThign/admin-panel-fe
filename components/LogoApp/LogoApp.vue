@@ -1,16 +1,16 @@
 <template>
   <NuxtLink
     :to="localePath(`${pagePaths.home}`)"
-    class="logo fixed top-10 left-10 mb-4 lg:mb-20 z-[2000]"
+    class="logo tw-fixed tw-top-10 tw-left-10 tw-mb-4 tw-lg:mb-20 tw-z-[2000]"
     href="/"
   >
     <div
       v-for="(character, i) in logoCharacters"
       :key="i"
-      class="overflow-hidden flex items-center justify-center"
+      class="tw-overflow-hidden tw-flex tw-items-center tw-justify-center"
     >
       <div
-        class="position-relative text-silver logo-item"
+        class="tw-position-relative tw-text-silver logo-item"
         :class="`${character.id ? `logo-${character.id}` : ''}`"
       >
         {{ character.title }}

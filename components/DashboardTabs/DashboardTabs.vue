@@ -1,15 +1,17 @@
 <template>
   <div
-    class="dashboard-tabs mt-9 flex items-center justify-start gap-5 flex-wrap"
+    class="dashboard-tabs tw-mt-9 tw-flex tw-items-center tw-justify-start tw-gap-5 tw-flex-wrap"
   >
     <NuxtLink
       :to="localePath(tab.link)"
-      class="dashboard-tab-item"
+      class="dashboard-tab-item tw-no-underline"
       v-for="(tab, i) in tabs"
       :key="i"
     >
       <div class="dashboard-tab-number">0{{ i + 1 }}:</div>
-      <div class="character-list flex items-center justify-center gap-1">
+      <div
+        class="character-list tw-flex tw-items-center tw-justify-center tw-gap-1"
+      >
         <div
           class="character-item"
           :class="`${character.id ? `item-${character.id}` : ''}`"

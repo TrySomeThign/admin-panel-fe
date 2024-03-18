@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 export default <Partial<Config>>{
+  prefix: "tw-",
   darkMode: "class",
   theme: {
     extend: {
@@ -32,4 +33,7 @@ export default <Partial<Config>>{
     "./*.{vue,js,ts}",
     "./nuxt.config.{js,ts}",
   ],
+  corePlugins: {
+    preflight: false,
+  },
 };

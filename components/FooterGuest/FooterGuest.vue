@@ -1,8 +1,10 @@
 <template>
   <footer
-    class="footer fixed bottom-4 left-0 right-0 mx-5 text-white bg-cod-gray z-50"
+    class="footer tw-fixed tw-bottom-4 tw-left-0 tw-right-0 tw-mx-5 tw-text-white tw-bg-cod-gray tw-z-50 tw-overflow-hidden"
   >
-    <div class="flex items-center justify-between w-full relative z-20">
+    <div
+      class="tw-flex tw-items-center tw-justify-between tw-w-full tw-relative tw-z-20"
+    >
       <div class="content-left text-sm text-silver font-medium font-supply">
         @2024, trysomethign
       </div>
@@ -14,7 +16,7 @@
     </div>
 
     <div
-      class="background absolute left-0 top-0 bg-scorpion h-full z-10 opacity-50"
+      class="background tw-absolute tw-left-0 tw-top-0 tw-bg-scorpion tw-h-full tw-z-10 tw-opacity-50"
       :style="{
         width: `${percentageScroll}%`,
       }"
@@ -39,8 +41,6 @@ const { percentageScroll } = defineProps<{ percentageScroll: number }>();
   font-family: "supply", sans-serif;
 }
 .background {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 </style>

@@ -1,28 +1,34 @@
 <template>
-  <div class="text-silver mt-40 pb-20 md:pb-0 md:mt-0">
-    <div class="item-email flex items-center justify-end gap-3 flex-wrap">
-      <span class="text-sm contact-item text-scorpion">email :</span>
+  <div class="tw-text-silver tw-mt-40 tw-pb-20 md:tw-pb-0 md:tw-mt-0">
+    <div
+      class="item-email tw-flex tw-items-center tw-justify-end tw-gap-3 tw-flex-wrap"
+    >
+      <span class="tw-text-sm tw-font-supply contact-item tw-text-scorpion"
+        >email :</span
+      >
       <span
-        class="text-sm contact-item color-silver"
+        class="tw-text-sm contact-item tw-font-supply tw-color-silver"
         @mouseover="(e: MouseEvent) => startAnimation(e, email)"
         :data-value="email"
         >{{ email }}</span
       >
     </div>
 
-    <div class="line-divide my-6"></div>
+    <div class="line-divide tw-my-6"></div>
 
-    <div class="flex items-center justify-end gap-3 lg:gap-10 flex-wrap">
+    <div
+      class="tw-flex tw-items-center tw-justify-end tw-gap-3 lg:tw-gap-10 tw-flex-wrap"
+    >
       <NuxtLink
         :to="contact.url"
         target="_blank"
-        class="contact-item font-supply hover:text-green-suckle"
+        class="contact-item tw-font-supply tw-no-underline tw-text-silver hover:tw-text-green-suckle"
         v-for="contact in contactList"
         :key="contact.id"
       >
         →
         <span
-          class="text-sm color-silver font-normal font-supply letter tracking-widest"
+          class="tw-text-sm tw-text-silver tw-font-normal tw-font-supply letter tw-tracking-widest hover:tw-text-green-suckle"
         >
           {{ contact.title }}
         </span>
