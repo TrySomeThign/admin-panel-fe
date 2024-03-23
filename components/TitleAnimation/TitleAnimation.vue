@@ -1,7 +1,7 @@
 <template>
   <div class="tw-flex tw-items-center tw-justify-start tw-gap-1">
     <div
-      class="letters"
+      class="letters tw-text-[50px] md:tw-text-[100px] tw-font-flexible tw-font-medium"
       :class="`${isTallText ? 'pull' : ''} ${
         character.id ? `character-${character.id}` : ''
       } ${classNameCharacter}`"

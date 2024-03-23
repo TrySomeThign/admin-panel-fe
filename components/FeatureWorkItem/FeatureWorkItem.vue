@@ -13,21 +13,18 @@
       },
     }"
   >
-    <ImageCustom
-      :src="featureWork.image"
-      :alt="`feature-image-${featureWork.id}`"
-      class="tw-w-full tw-h-full tw-object-cover"
-    />
+    <ModalFeatureWork :featureWork="featureWork" />
+
     <div class="tw-flex tw-items-center tw-justify-between tw-mt-3">
       <p
-        class="tw-text-sm tw-text-silver tw-font-supply tw-px-2 tw-py-1 tw-border tw-border-solid tw-border-silver tw-rounded"
+        class="tw-text-xs md:tw-text-sm tw-text-silver tw-font-supply tw-px-2 tw-py-1 tw-border tw-border-solid tw-border-silver tw-rounded"
       >
         {{ featureWork.type }}
       </p>
       <NuxtLink
         :to="featureWork.link"
         target="_blank"
-        class="tw-no-underline tw-text-base tw-text-green-suckle tw-font-supply"
+        class="tw-no-underline tw-text-sm md:tw-text-base tw-text-green-suckle tw-font-supply"
         >→ link</NuxtLink
       >
     </div>

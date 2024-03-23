@@ -5,18 +5,20 @@
     <div
       class="tw-flex tw-items-center tw-justify-between tw-w-full tw-relative tw-z-20"
     >
-      <div class="content-left text-sm text-silver font-medium font-supply">
+      <div
+        class="content-left tw-text-xs md:tw-text-sm tw-text-silver tw-font-medium tw-font-supply tw-whitespace-nowrap"
+      >
         @2024, trysomethign
       </div>
       <div
-        class="content-right text-sm text-green-suckle font-medium font-supply"
+        class="content-right tw-text-xs md:tw-text-sm tw-text-green-suckle tw-font-medium tw-font-supply"
       >
         {{ fullPath }}
       </div>
     </div>
 
     <div
-      class="background tw-absolute tw-left-0 tw-top-0 tw-bg-scorpion tw-h-full tw-z-10 tw-opacity-50"
+      class="background tw-absolute tw-left-0 tw-top-0 tw-bg-scorpion tw-h-full tw-z-10 tw-opacity-50 tw-flex-1"
       :style="{
         width: `${percentageScroll}%`,
       }"
@@ -41,6 +43,6 @@ const { percentageScroll } = defineProps<{ percentageScroll: number }>();
   font-family: "supply", sans-serif;
 }
 .background {
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 </style>

@@ -1,9 +1,17 @@
 <template>
-  <div class="tw-w-[75%]">
-    <TitleAnimation :letters="titleCharacters" />
-    <TitleAnimation :letters="myFeatureCharacters" />
+  <div class="tw-w-full lg:tw-w-[75%]">
+    <TitleAnimation
+      :letters="titleCharacters"
+      :classNameCharacter="'tw-text-silver'"
+    />
+    <TitleAnimation
+      :letters="myFeatureCharacters"
+      :classNameCharacter="'tw-text-silver'"
+    />
 
-    <div class="tw-text-silver tw-grid tw-grid-cols-2 tw-gap-8">
+    <div
+      class="tw-text-silver tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-8"
+    >
       <div
         class="feature-work-item"
         v-for="feature in featureWorkList"
