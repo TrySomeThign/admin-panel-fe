@@ -2,11 +2,11 @@
   <div class="tw-w-full lg:tw-w-[75%]">
     <TitleAnimation
       :letters="titleCharacters"
-      :classNameCharacter="'tw-text-silver'"
+      :classNameCharacter="'tw-text-silver tw-text-[50px] md:tw-text-[100px]'"
     />
     <TitleAnimation
       :letters="myFeatureCharacters"
-      :classNameCharacter="'tw-text-silver'"
+      :classNameCharacter="'tw-text-silver tw-text-[50px] md:tw-text-[100px]'"
     />
 
     <div

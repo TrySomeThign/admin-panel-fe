@@ -1,0 +1,14 @@
+
+.skill-item {
+  &:hover .skill-title {
+    font-variation-settings: "wdth" 200, "HGHT" 200;
+    color: var(--color-green-suckle);
+    transition: font-variation-settings color 0.4s cubic-bezier(.25, 1, .5, 1);
+  }
+
+}
+.skill-title {
+  font-variation-settings: "wdth" 200, "HGHT" 1000;
+  line-height: 1;
+  transition: font-variation-settings 0.4s cubic-bezier(.25, 1, .5, 1);
+}

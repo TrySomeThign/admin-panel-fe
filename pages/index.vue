@@ -14,7 +14,7 @@
     <DashboardTabs />
 
     <div
-      class="contact-section tw-relative md:tw-absolute md:tw-bottom-[15%] md:tw-right-[2%]"
+      class="contact-section tw-relative md:tw-absolute md:tw-bottom-[8%] md:tw-right-[2%]"
     >
       <ContactSection />
     </div>
