@@ -13,6 +13,7 @@ export const pagePaths = {
   skills: "/skills",
   contact: "/contact",
   featureWork: "/feature-work",
+  experience: "/experience",
 };
 
 export const avatarPlaceholderPath = "/images/avatar-placeholder.gif";

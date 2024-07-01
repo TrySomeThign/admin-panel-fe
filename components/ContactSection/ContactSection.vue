@@ -44,22 +44,22 @@ const contactList: { id: number; title: string; url: string }[] = [
   {
     id: 1,
     title: "linkedIn",
-    url: "https://linkedin.com",
+    url: "https://www.linkedin.com/in/minh-tai-a14134228/",
   },
   {
     id: 1,
     title: "github",
-    url: "https://github.com",
+    url: "https://github.com/conian250501",
   },
   {
     id: 1,
     title: "instagram",
-    url: "https://instagram.com",
+    url: "https://www.instagram.com/conianguysdakrsick/",
   },
   {
     id: 1,
-    title: "behance",
-    url: "https://behance.com",
+    title: "upwork",
+    url: "https://www.upwork.com/freelancers/~01fd5a3789b626db10",
   },
 ];
 

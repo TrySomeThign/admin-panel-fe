@@ -3,7 +3,7 @@
     class="dashboard-tabs tw-mt-9 tw-flex tw-items-center tw-justify-start tw-gap-5 tw-flex-wrap"
   >
     <NuxtLink
-      :to="localePath(tab.link)"
+      :to="localePath(tab?.link ?? '')"
       class="dashboard-tab-item tw-no-underline"
       v-for="(tab, i) in tabs"
       :key="i"
@@ -32,11 +32,12 @@ const localePath = useLocalePath();
 interface ITab {
   id: number;
   characters: { id: number | null; text: string }[];
-  link: string;
+  link?: string;
 }
 const textFeatureWork = "F E A T U R E    W O R K";
 const textSkills = "S K I L L S";
 const textContact = "C O N T A C T";
+const textExperience = "E X P E R I E N C E";
 const tabs: ITab[] = [
   {
     id: 1,
@@ -62,7 +63,16 @@ const tabs: ITab[] = [
       id: item.startsWith(" ") ? null : i + 1,
       text: item,
     })),
-    link: pagePaths.contact,
+    // link: pagePaths.contact,
+  },
+
+  {
+    id: 3,
+    characters: textExperience.split(" ").map((item, i) => ({
+      id: item.startsWith(" ") ? null : i + 1,
+      text: item,
+    })),
+    link: pagePaths.experience,
   },
 ];
 </script>
