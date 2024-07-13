@@ -34,14 +34,15 @@ interface ITab {
   characters: { id: number | null; text: string }[];
   link?: string;
 }
-const textFeatureWork = "F E A T U R E    W O R K";
+// const textFeatureWork = "F E A T U R E    W O R K";
+const textAbout = "A B O U T   M E";
 const textSkills = "S K I L L S";
 const textContact = "C O N T A C T";
 const textExperience = "E X P E R I E N C E";
 const tabs: ITab[] = [
   {
     id: 1,
-    characters: textFeatureWork.split(" ").map((item, i) => ({
+    characters: textAbout.split(" ").map((item, i) => ({
       id: item.startsWith(" ") ? null : i + 1,
       text: item,
     })),

@@ -17,7 +17,7 @@
         >click :
       </span>
       <NuxtLink
-        :to="pagePaths.contact"
+        :to="'tel:+84908773057'"
         class="tw-text-base tw-font-medium tw-font-supply tw-text-green-suckle"
         >book call</NuxtLink
       >
@@ -26,7 +26,6 @@
 </template>
 
 <script lang="ts" setup>
-import { pagePaths } from "~/constant/paths";
 const runtimeConfig = useRuntimeConfig();
 const email = runtimeConfig.public.email;
 </script>
