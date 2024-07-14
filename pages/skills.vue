@@ -3,8 +3,8 @@
   <div
     class="tw-flex tw-items-center tw-justify-center tw-flex-col tw-gap-14 tw-py-20"
   >
-    <div class="skill-item" v-for="skill in skills" :key="skill.id">
-      <SkillItem :skill="skill" />
+    <div class="skill-item" v-for="(skill, i) in skills" :key="skill.id">
+      <SkillItem :skill="skill" :index="i + 1" />
     </div>
   </div>
 </template>
@@ -36,8 +36,16 @@ const skills: { id: number; title: string }[] = [
     title: "SQL",
   },
   {
+    id: Math.random(),
+    title: "MONGODB",
+  },
+  {
+    id: Math.random(),
+    title: "FIRESTORE",
+  },
+  {
     id: 6,
-    title: "AWS",
+    title: "AMAZON WEB SERVICE",
   },
   {
     id: 7,
@@ -49,11 +57,27 @@ const skills: { id: number; title: string }[] = [
   },
   {
     id: 9,
-    title: "MONGODB",
+    title: "FIGMA",
   },
   {
     id: 10,
     title: "TYPESCRIPT",
+  },
+  {
+    id: 11,
+    title: "GOOGLE CLOUD",
+  },
+  {
+    id: 10,
+    title: "NGINX",
+  },
+  {
+    id: 10,
+    title: "DOCKER & DOCKER COMPOSE",
+  },
+  {
+    id: Math.random(),
+    title: "GITHUB AND BITBUCKET",
   },
 ];
 </script>

@@ -11,7 +11,7 @@
     </div>
 
     <DashboardTitle />
-    <DashboardTabs />
+    <ClientOnly><DashboardTabs /></ClientOnly>
 
     <div
       class="contact-section tw-relative md:tw-absolute md:tw-bottom-[8%] md:tw-right-[2%]"
