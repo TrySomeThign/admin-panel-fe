@@ -33,7 +33,15 @@ const skills: { id: number; title: string }[] = [
   },
   {
     id: 5,
-    title: "SQL",
+    title: "MYSQL",
+  },
+  {
+    id: Math.random(),
+    title: "REDIS",
+  },
+  {
+    id: Math.random(),
+    title: "POSTGRESSQL",
   },
   {
     id: Math.random(),
@@ -77,7 +85,7 @@ const skills: { id: number; title: string }[] = [
   },
   {
     id: Math.random(),
-    title: "GITHUB AND BITBUCKET",
+    title: "GITHUB & BITBUCKET",
   },
 ];
 </script>

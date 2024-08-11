@@ -41,7 +41,8 @@ onMounted(() => {
   const neighborVariation = minVariation + 250;
 
   textContainers.forEach((textContainer) => {
-    const spans = document.querySelectorAll<HTMLSpanElement>(".skill-title");
+    const spans =
+      textContainer.querySelectorAll<HTMLSpanElement>(".skill-title");
     textContainer.addEventListener("mousemove", (e: MouseEvent) => {
       const target = e.target as HTMLSpanElement;
       const index = Array.from(spans).indexOf(target);

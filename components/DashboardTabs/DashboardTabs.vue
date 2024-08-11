@@ -30,10 +30,15 @@ interface ITab {
 }
 
 const words = ref<ITab[]>([
+  // {
+  //   id: 1,
+  //   characters: "ABOUT ME",
+  //   link: pagePaths.featureWork,
+  // },
   {
     id: 1,
     characters: "ABOUT ME",
-    link: pagePaths.featureWork,
+    link: pagePaths.aboutMe,
   },
 
   {
@@ -62,7 +67,8 @@ onMounted(() => {
   const neighborVariation = minVariation + 150;
 
   textContainers.forEach((textContainer) => {
-    const spans = document.querySelectorAll<HTMLSpanElement>(".character-item");
+    const spans =
+      textContainer.querySelectorAll<HTMLSpanElement>(".character-item");
     textContainer.addEventListener("mousemove", (e: MouseEvent) => {
       const target = e.target as HTMLSpanElement;
       const index = Array.from(spans).indexOf(target);

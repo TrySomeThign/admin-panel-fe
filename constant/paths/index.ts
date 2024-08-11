@@ -14,6 +14,7 @@ export const pagePaths = {
   contact: "/contact",
   featureWork: "/feature-work",
   experience: "/experience",
+  aboutMe: "/me",
 };
 
 export const avatarPlaceholderPath = "/images/avatar-placeholder.gif";
