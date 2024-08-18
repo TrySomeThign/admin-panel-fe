@@ -1,0 +1,61 @@
+.about-me__welcome {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+
+  @include mobile {
+    gap: 2px;
+    margin-top: 18px;
+  }
+}
+
+.about-me__welcome--item {
+  font-size: 80px;
+  color: var(--color-silver);
+  font-weight: 500;
+  font-family: 'flexible', sans-serif;
+  font-variation-settings: "wdth" 200, "HGHT" 200;
+  transform: scaleY(0);
+  transition: transform .4s cubic-bezier(.25, 1, .5, 1), font-variation-settings .4s cubic-bezier(.25, 1, .5, 1);
+  transform-origin: top;
+
+  &.pull {
+    font-variation-settings: "wdth" 200, "HGHT" 1000;
+    transition: transform .4s cubic-bezier(.25, 1, .5, 1), font-variation-settings .4s cubic-bezier(.25, 1, .5, 1);
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+
+  @include mobile {
+    font-size: 50px;
+  }
+}
+
+.icon-hand {
+  animation: Greeting 1s linear infinite;
+  transform-origin: bottom;
+  font-size: 80px;
+  color: var(--color-silver);
+  font-weight: 500;
+
+  @include mobile {
+    font-size: 50px;
+  }
+}
+
+@keyframes Greeting {
+  0% {
+    transform: rotate(-20deg);
+  }
+
+  50% {
+    transform: rotate(20deg);
+  }
+
+  100% {
+    transform: rotate(-20deg);
+
+  }
+}

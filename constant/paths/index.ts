@@ -15,6 +15,7 @@ export const pagePaths = {
   featureWork: "/feature-work",
   experience: "/experience",
   aboutMe: "/me",
+  dev: "/dev",
 };
 
 export const avatarPlaceholderPath = "/images/avatar-placeholder.gif";

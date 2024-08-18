@@ -13,7 +13,7 @@
       <div
         class="content-right tw-text-xs md:tw-text-sm tw-text-green-suckle tw-font-medium tw-font-supply"
       >
-        {{ fullPath }}
+        All rights reserved.
       </div>
     </div>
 
@@ -27,7 +27,6 @@
 </template>
 
 <script setup lang="ts">
-const { fullPath } = useRoute();
 const { percentageScroll } = defineProps<{ percentageScroll: number }>();
 </script>
 

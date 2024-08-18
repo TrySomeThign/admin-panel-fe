@@ -53,7 +53,11 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@vee-validate/nuxt",
     "@vueuse/nuxt",
+    "@nuxtjs/device",
   ],
+  device: {
+    refreshOnResize: true,
+  },
   vite: {
     vue: {
       template: {
