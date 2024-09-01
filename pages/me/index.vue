@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div
-    class="tw-relative tw-pt-10 tw-pb-10 md:tw-pb-20 tw-flex tw-items-center tw-justify-center tw-flex-col"
+    class="tw-relative tw-pt-10 tw-pb-10 md:tw-pb-20 tw-flex tw-items-center tw-justify-center tw-flex-col tw-text-white"
   >
     <div class="about-me__welcome">
       <div
@@ -17,8 +17,23 @@
       </div>
       <p :class="`icon-hand tw-ml-2.5 ${isTallText ? 'pull' : ''}`">👋</p>
     </div>
+
     <h2
       class="tw-text-center tw-mt-2.5 md:tw-mt-5 tw-mb-4 md:tw-mb-8 tw-text-[40px] md:tw-text-[40px] lg:tw-text-[60px] tw-font-supply"
+      v-motion
+      :initial="{
+        opacity: 0,
+        translateY: 200,
+      }"
+      :visible="{
+        translateY: 0,
+        opacity: 1,
+        transition: {
+          duration: 450,
+          type: 'keyframes',
+          ease: 'easeOut',
+        },
+      }"
     >
       I'm
       <span
@@ -27,7 +42,7 @@
       >
     </h2>
     <p
-      class="tw-text-center tw-text-base md:tw-text-xl lg:tw-text-2xl tw-max-w-full lg:tw-max-w-[80%] 2xl:tw-max-w-[60%] tw-font-bold tw-font-supply"
+      class="tw-text-center tw-text-base md:tw-text-xl lg:tw-text-2xl tw-max-w-full lg:tw-max-w-[80%] 2xl:tw-max-w-[60%] tw-font-bold tw-font-supply tw-text-white"
     >
       I'm a software engineer from Viet Nam, With 1 year of experience,
       specializing in back-end development with Node.js and front-end
@@ -44,6 +59,18 @@
         characters: '<< Experience__more__awesome__now! />>',
       }"
       v-if="!isMobile"
+      v-motion
+      :initial="{
+        opacity: 0,
+      }"
+      :visible="{
+        opacity: 1,
+        transition: {
+          duration: 500,
+          type: 'keyframes',
+          ease: 'easeOut',
+        },
+      }"
     />
 
     <TabLink
@@ -52,6 +79,18 @@
         characters: '<< More__awesome />>',
       }"
       v-if="isMobile"
+      v-motion
+      :initial="{
+        opacity: 0,
+      }"
+      :visible="{
+        opacity: 1,
+        transition: {
+          duration: 500,
+          type: 'keyframes',
+          ease: 'easeOut',
+        },
+      }"
     />
   </div>
 </template>

@@ -5,18 +5,18 @@
 </template>
 
 <script setup lang="ts">
-import { ofetch } from "ofetch";
+// import { ofetch } from "ofetch";
 
-if (process.client) {
-  const runtimeConfig = useRuntimeConfig();
-  const token = localStorage.getItem("token");
-  globalThis.$fetch = ofetch.create({
-    baseURL: `${runtimeConfig.public.apiUrl}`,
-    headers: {
-      Authorization: "Bearer " + token,
-    },
-  });
-}
+// if (process.client) {
+//   const runtimeConfig = useRuntimeConfig();
+//   const token = localStorage.getItem("token");
+//   globalThis.$fetch = ofetch.create({
+//     baseURL: `${runtimeConfig.public.apiUrl}`,
+//     headers: {
+//       Authorization: "Bearer " + token,
+//     },
+//   });
+// }
 </script>
 
 <style>

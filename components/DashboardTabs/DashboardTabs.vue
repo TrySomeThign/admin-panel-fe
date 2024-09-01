@@ -50,7 +50,7 @@ const words = ref<ITab[]>([
   {
     id: 3,
     characters: "CONTACT",
-    // link: pagePaths.contact,
+    link: pagePaths.contact,
   },
 
   {

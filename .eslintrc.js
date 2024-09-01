@@ -26,5 +26,11 @@ module.exports = {
       "error",
       { vars: "all", args: "after-used", ignoreRestSiblings: true },
     ],
+    "vue/multi-word-component-names": [
+      "error",
+      {
+        ignores: ["index"],
+      },
+    ],
   },
 };

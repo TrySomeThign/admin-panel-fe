@@ -54,6 +54,22 @@ export default defineNuxtConfig({
     "@vee-validate/nuxt",
     "@vueuse/nuxt",
     "@nuxtjs/device",
+    [
+      "nuxt-mail",
+      {
+        message: {
+          to: "minhtai250501@gmail.com",
+        },
+        smtp: {
+          host: "smtp.gmail.com",
+          port: 587,
+          auth: {
+            user: "foo@gmail.com",
+            pass: "<app-specific password>",
+          },
+        },
+      },
+    ],
   ],
   device: {
     refreshOnResize: true,
@@ -110,6 +126,10 @@ export default defineNuxtConfig({
     public: {
       apiUrl: `${process.env.NUXT_PUBLIC_API_URL}/api/v1/` || "/api/v1",
       email: process.env.NUXT_PUBLIC_EMAIL_MYSELF || "tyler@trysomethign.com",
+      userEmail:
+        process.env.NUXT_PUBLIC_EMAIL_USERNAME || "minhtai250501@gmail.com",
+      emailPassword:
+        process.env.NUXT_PUBLIC_EMAIL_PASSWORD || "uieo bwxl hmnq ckgj",
     },
   },
 });
