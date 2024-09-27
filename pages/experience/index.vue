@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tw-pb-20">
     <div class="tw-flex tw-items-center tw-justify-center">
       <div class="experience__title">
         <div
@@ -14,7 +14,10 @@
       </div>
     </div>
 
-    <div class="tw-max-w-[50%] tw-my-0 tw-mx-auto tw-mt-6">
+    <div
+      class="tw-my-0 tw-mx-auto tw-mt-6"
+      :class="experiences.length <= 1 ? 'tw-max-w-[50%]' : 'tw-max-w-full'"
+    >
       <v-timeline align="start" line-color="#e0f954" truncate-line="start">
         <v-timeline-item
           v-for="(item, i) in experiences"
@@ -29,6 +32,20 @@
             ></v-avatar>
           </template>
           <div
+            v-motion
+            :initial="{
+              opacity: 0,
+              y: 100,
+            }"
+            :visible="{
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 250 * (i + 2),
+                type: 'keyframes',
+                ease: 'easeOut',
+              },
+            }"
             class="!tw-bg-transparent tw-text-white tw-border-[2px] tw-border-solid tw-border-green-lime"
           >
             <div
