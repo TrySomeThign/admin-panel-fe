@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-mx-0 tw-my-auto tw-mt-6 tw-font-supply">
+  <div class="tw-mx-0 tw-my-auto tw-mt-6 tw-font-supply tw-pb-20">
     <div class="tw-flex tw-items-center tw-justify-center">
       <div class="contact__title">
         <div
@@ -18,10 +18,10 @@
 
     <form
       v-if="!isSendContactSuccess"
-      class="tw-flex tw-items-center tw-justify-center tw-flex-col tw-w-full tw-mt-11"
+      class="tw-flex tw-items-center tw-justify-center tw-flex-col tw-w-full tw-mt-4"
       @submit.prevent="handleSendContact"
     >
-      <div class="tw-w-[500px] tw-space-y-8">
+      <div class="tw-w-full lg:tw-w-[500px] tw-space-y-8">
         <div class="tw-relative tw-space-y-2">
           <label class="tw-block tw-text-base tw-font-bold text-white"
             >Email</label
@@ -69,7 +69,7 @@
             v-model="message"
             v-bind="messageAttrs"
             placeholder="Do you have any question for work?"
-            class="tw-border-[1.5px] tw-border-silver tw-border-solid tw-px-3 tw-py-2.5 tw-w-full text-white focus:tw-outline-none tw-h-52 tw-rounded-md focus:tw-border-green-lime"
+            class="tw-border-[1.5px] tw-border-silver tw-border-solid tw-px-3 tw-py-2.5 tw-w-full text-white focus:tw-outline-none tw-h-40 lg:tw-h-52 tw-rounded-md focus:tw-border-green-lime"
           />
           <p
             class="tw-absolute tw-bottom-[-22px] tw-text-sm tw-text-green-lime tw-font-medium tw-italic"

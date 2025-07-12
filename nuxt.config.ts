@@ -125,7 +125,7 @@ export default defineNuxtConfig({
     NODE_ENV: process.env.NUXT_PUBLIC_NODE_ENV,
     public: {
       apiUrl: `${process.env.NUXT_PUBLIC_API_URL}/api/v1/` || "/api/v1",
-      email: process.env.NUXT_PUBLIC_EMAIL_MYSELF || "tyler@trysomethign.com",
+      email: process.env.NUXT_PUBLIC_EMAIL_MYSELF || "minhtai250501@gmail.com",
       userEmail:
         process.env.NUXT_PUBLIC_EMAIL_USERNAME || "minhtai250501@gmail.com",
       emailPassword:

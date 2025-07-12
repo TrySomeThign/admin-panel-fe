@@ -55,7 +55,7 @@
     </p>
     <TabLink
       :tab="{
-        link: localePath(pagePaths.dev),
+        link: '#',
         characters: '<< Experience__more__awesome__now! />>',
       }"
       v-if="!isMobile"
@@ -75,7 +75,7 @@
 
     <TabLink
       :tab="{
-        link: localePath(pagePaths.dev),
+        link: '#',
         characters: '<< More__awesome />>',
       }"
       v-if="isMobile"
@@ -96,8 +96,6 @@
 </template>
 
 <script setup lang="ts">
-import { pagePaths } from "~/constant/paths";
-const localePath = useLocalePath();
 const { isMobile } = useDevice();
 
 definePageMeta({

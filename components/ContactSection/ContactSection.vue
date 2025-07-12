@@ -49,12 +49,12 @@ const contactList: { id: number; title: string; url: string }[] = [
   {
     id: 1,
     title: "github",
-    url: "https://github.com/conian250501",
+    url: "https://github.com/whittaker-dev",
   },
   {
     id: 1,
     title: "instagram",
-    url: "https://www.instagram.com/conianguysdakrsick/",
+    url: "https://www.instagram.com/whittaker.dev",
   },
   {
     id: 1,

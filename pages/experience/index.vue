@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-pb-20">
+  <div class="tw-pb-20 tw-mt-10 lg:tw-mt-0">
     <div class="tw-flex tw-items-center tw-justify-center">
       <div class="experience__title">
         <div
@@ -16,14 +16,24 @@
 
     <div
       class="tw-my-0 tw-mx-auto tw-mt-6"
-      :class="experiences.length <= 1 ? 'tw-max-w-[50%]' : 'tw-max-w-full'"
+      :class="
+        experiences.length <= 1
+          ? 'tw-max-w-full lg:tw-max-w-[50%]'
+          : 'tw-max-w-full'
+      "
     >
-      <v-timeline align="start" line-color="#e0f954" truncate-line="start">
+      <v-timeline
+        align="start"
+        line-color="#e0f954"
+        truncate-line="start"
+        class="tw-ml-[-28px] lg:tw-ml-0"
+      >
         <v-timeline-item
           v-for="(item, i) in experiences"
           :key="i"
           :dot-color="item.color"
           fill-dot
+          class="tw-mb-4"
         >
           <template v-slot:icon>
             <v-avatar
@@ -50,13 +60,13 @@
           >
             <div
               :class="[
-                'tw-text-lg tw-font-bold tw-font-supply tw-bg-white tw-py-2.5 tw-px-4 tw-text-black-almost',
+                'tw-text-base lg:tw-text-lg tw-font-bold tw-font-supply tw-bg-white tw-py-2.5 tw-px-4 tw-text-black-almost',
               ]"
             >
-              NUS Technology ( ~1,5 year experience)
+              NUS Technology ( ~2 year exp)
             </div>
             <div class="text--primary tw-bg-transparent tw-p-4">
-              <div class="tw-space-y-2.5">
+              <div class="tw-space-y-2.5 tw-text-sm lg:tw-text-base">
                 <li>
                   <strong> Diverse Project Experience: </strong>Contributed to
                   over 6 projects across various industries, including
